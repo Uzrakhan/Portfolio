@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 const Home = () => {
     return(
-        <div className='container mt-5 min-vh-50'>
+        <div className='container mt-5 min-vh-150'>
             <div className='d-flex justify-content-between align-items-center p-4'>
                 <div className='row align-items-right'>
                     <img src='https://media.istockphoto.com/id/2192384336/vector/young-muslim-woman-in-hijab-holding-laptop-in-hand.jpg?s=612x612&w=0&k=20&c=5d8ujMBxUnWN5F5TA5k3hnDEl4a9wEI0sFdUjBV_QNk='
