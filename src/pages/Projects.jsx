@@ -1,4 +1,6 @@
 import React from 'react';
+import expenseAppImg from '../assets/download.expense-app.png'
+import ecommerceAppImg from '../assets/E-commerce-store.png'
 
 const Projects = () => {
     const projectList = [
@@ -6,8 +8,8 @@ const Projects = () => {
             id: 'ecommerce-store',
             title: 'E-commerce store',
             description: 'An e-commerce platform with product listings, a shopping cart, and checkout functionality.',
-            image: "https://plus.unsplash.com/premium_photo-1677995700941-100976883af7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZSUyMGNvbW1lcmNlJTIwc3RvcmV8ZW58MHx8MHx8fDA%3D",
-            link: '#'
+            image: ecommerceAppImg,
+            link: 'https://e-commerce-store-react.vercel.app/'
         },
         {
             id: 'todo-app',
@@ -20,7 +22,7 @@ const Projects = () => {
             id: 'expense-tracker-app',
             title: 'Expense Tracker App',
             description: 'An interactive logic based expense tracker app which lets you store your expense and income, also gives you a report of your expenditure.',
-            image: "https://media.istockphoto.com/id/1342226850/photo/woman-checking-her-montly-expenses-while-having-coffee-break.webp?a=1&b=1&s=612x612&w=0&k=20&c=qqd0QYWdea7HV3uoZqpXLB0Iaq6sEALJtT9mtnm4vdw=",
+            image: expenseAppImg,
             link: 'https://xpense-app-murex.vercel.app/'
         },
         {
