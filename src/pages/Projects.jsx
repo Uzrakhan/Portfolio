@@ -64,34 +64,35 @@ const Projects = () => {
     ];
 
     return(
-        <div className='container mx-auto mt-10 min-h-screen'>
-            <div className='text-center mb-8 pt-4'>
-                <h2 className='text-4xl font-bold'>My Projects</h2>
-                <p className='text-gray-600 mt-2'>Here are some of my projects.</p>
+        <div className="container my-5">
+      <h1 className="text-center mb-4">My Projects</h1>
+      <div className="row">
+        {projectList.map((project) => (
+          <div className="col-md-6 mb-4" key={project.id}>
+            <div className="card shadow-sm h-100">
+              <img
+                src={project.image}
+                className="card-img-top"
+                alt={project.title}
+                style={{ objectFit: "cover", height: "300px" }}
+              />
+              <div className="card-body">
+                <h5 className="card-title">{project.title}</h5>
+                <p className="card-text">{project.description}</p>
+                <a
+                  href={project.link}
+                  className="btn btn-primary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Project
+                </a>
+              </div>
             </div>
-
-            <div className='row h-30 mt-2'>
-                {projectList.map((project, index) => (
-                    <div key={index} className='col-md-6 mb-4'>
-                        <div className='card shadow-md rounded-2xl h-100 d-flex flex-column'>
-                            <img
-                            src={project.image}
-                            alt={project.title}
-                            className='card-img-top w-100 h-100 object-contain rounded-md'
-                            />
-                            <div className='card-body'>
-                                <h3 className='text-xl font-semibold mb-4'>{project.title}</h3>
-                                <p className='text-gray-700 mb-4'>{project.description}</p>
-                                <a className=' btn btn-primary' 
-                                 href={project.link} target="_blank" rel="noopener noreferrer">
-                                    View Project
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
+          </div>
+        ))}
+      </div>
+    </div>
     )
 };
 
