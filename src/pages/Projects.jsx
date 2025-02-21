@@ -1,6 +1,7 @@
 import React from 'react';
 import expenseAppImg from '../assets/download.expense-app.png'
 import ecommerceAppImg from '../assets/E-commerce-store.png'
+import tomatoAppImg from '../assets/Tomato-app.png'
 
 const Projects = () => {
     const projectList = [
@@ -24,6 +25,13 @@ const Projects = () => {
             description: 'An interactive logic based expense tracker app which lets you store your expense and income, also gives you a report of your expenditure.',
             image: expenseAppImg,
             link: 'https://xpense-app-murex.vercel.app/'
+        },
+        {
+            id: 'tomato-app',
+            title: 'Tomato App',
+            description: 'A restaurant app based on Zomato, with filters to apply.',
+            image: tomatoAppImg,
+            link: 'https://tomato-food-app-two.vercel.app/'
         },
         {
             id: 'movie-database-app',
