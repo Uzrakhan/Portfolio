@@ -13,15 +13,11 @@ const StorySkills = () => {
         <div className='about-story'>
             <h3>My Story</h3>
             <span>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, aliquid! Itaque corrupti magnam fugiat mollitia labore magni saepe veritatis voluptatum alias fugit. Explicabo ducimus sequi aut corporis odio repellendus? Lorem ipsum dolor sit amet
+                With a strong foundation in analytical thinking and problem-solving, I hold a master's degree in Physics, where I honed my skills in critical analysis and structured approaches to complex challenges. My academic journey taught me the value of precision and creativity, which I’ve seamlessly transitioned into my passion for coding. Driven by a desire to create impactful digital experiences, I delved into the world of web development, mastering JavaScript, HTML, CSS, and modern frontend frameworks.
             </span>
             <br />
             <span>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, aliquid! Itaque corrupti magnam fugiat mollitia labore magni saepe veritatis voluptatum alias fugit. Explicabo ducimus sequi aut corporis odio repellendus? Lorem ipsum dolor sit amet
-            </span>
-            <br />
-            <span>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, aliquid! Itaque corrupti magnam fugiat mollitia labore magni saepe veritatis voluptatum alias fugit. Explicabo ducimus sequi aut corporis odio repellendus? Lorem ipsum dolor sit amet
+                 Now, as a budding frontend developer, I bring a unique perspective that combines scientific rigor with design aesthetics to build intuitive and responsive user interfaces. My background in physics enables me to approach coding with a logical mindset, while my commitment to continuous learning ensures I stay updated with industry trends. I am eager to contribute to innovative projects, leveraging my technical expertise to solve real-world problems and create seamless user experiences.
             </span>
             <br />
         </div>
