@@ -1,9 +1,35 @@
 import React from 'react'
 import TomatoApp from '../assets/TomatoApp.png'
+import ECommerce from '../assets/ECommerce.png'
+import XPense from '../assets/Xpense.png'
+import TwoGoodClone from '../assets/TwoGoodClone.png'
+import Movie from '../assets/Movie.png'
+import ReactTodo from '../assets/ReactTodo.png'
+
 const Projects = () => {
   return (
     <div className='projects-section'>
         <h2>Projects</h2>
+        <div className='project1'>
+            <div className='project1-img-name'>
+                <img  src={ECommerce}
+                width='450px'
+                height='250px'
+                />
+                <h4>E-Commerce App</h4>
+            </div>
+            <div className='project1-info-link'>
+                <div className='text'>
+                    <span>
+                        The E-commerce React App is a dynamic platform featuring real-time product listings, robust sort and filter options for seamless product discovery, and an intuitive add-to-cart functionality. With its responsive design and interactive interface, it provides an engaging shopping experience for users.
+                    </span>
+                </div>
+                <div className='links'>
+                    <a href="https://e-commerce-store-react.vercel.app/" className='demo-link'>DEMO</a>
+                    <a href="https://github.com/Uzrakhan/E-commerce-store-React" className='source-code'>Source Code</a>
+                </div>
+            </div>
+        </div>
         <div className='project1'>
             <div className='project1-img-name'>
                 <img  src={TomatoApp}
@@ -22,33 +48,89 @@ const Projects = () => {
                     <a href="https://tomato-food-app-two.vercel.app/" className='demo-link'>DEMO</a>
                     <a href="https://github.com/Uzrakhan/Tomato-food-app" className='source-code'>Source Code</a>
                 </div>
-
             </div>
-           
         </div>
         <div className='project1'>
-            <img  src={TomatoApp}
-             width='450px'
-             height='250px'
-            />
-            <h4>Tomato Food App</h4>
-            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A dicta, dignissimos nobis, ea repudiandae labore maxime facilis nisi obcaecati quod voluptates exercitationem autem adipisci rem assumenda. Sunt veniam quas saepe!</span>
+            <div className='project1-img-name'>
+                <img  src={XPense}
+                width='450px'
+                height='250px'
+                />
+                <h4>Xpense App</h4>
+            </div>
+            <div className='project1-info-link'>
+                <div className='text'>
+                    <span>
+                        The Xpense app is a simple, user-friendly tool for tracking income and expenses. It allows users to add transactions, view totals, filter by type or date, and reset data for easy personal finance management. Made using vanilla javascript.
+                    </span>
+                </div>
+                <div className='links'>
+                    <a href="https://xpense-app-murex.vercel.app/" className='demo-link'>DEMO</a>
+                    <a href="https://github.com/Uzrakhan/Xpense-App" className='source-code'>Source Code</a>
+                </div>
+            </div>
         </div>
         <div className='project1'>
-            <img  src={TomatoApp}
-             width='450px'
-             height='250px'
-            />
-            <h4>Tomato Food App</h4>
-            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A dicta, dignissimos nobis, ea repudiandae labore maxime facilis nisi obcaecati quod voluptates exercitationem autem adipisci rem assumenda. Sunt veniam quas saepe!</span>
+            <div className='project1-img-name'>
+                <img  src={TwoGoodClone}
+                width='450px'
+                height='250px'
+                />
+                <h4>Two Good Co (Clone)</h4>
+            </div>
+            <div className='project1-info-link'>
+                <div className='text'>
+                    <span>
+                        A UI clone of Two Good Website, with gsap animation and scroll.
+                    </span>
+                </div>
+                <div className='links'>
+                    <a href="https://uzrakhan.github.io/two-good/" className='demo-link'>DEMO</a>
+                    <a href="https://github.com/Uzrakhan/two-good" className='source-code'>Source Code</a>
+                </div>
+            </div>
         </div>
+
         <div className='project1'>
-            <img  src={TomatoApp}
-             width='450px'
-             height='250px'
-            />
-            <h4>Tomato Food App</h4>
-            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A dicta, dignissimos nobis, ea repudiandae labore maxime facilis nisi obcaecati quod voluptates exercitationem autem adipisci rem assumenda. Sunt veniam quas saepe!</span>
+            <div className='project1-img-name'>
+                <img  src={Movie}
+                width='450px'
+                height='250px'
+                />
+                <h4>Movie Database App</h4>
+            </div>
+            <div className='project1-info-link'>
+                <div className='text'>
+                    <span>
+                        An interactve movie database app which lets users to search for their favourite movies, filter them by specific filters. Made using vanilla JS.
+                    </span>
+                </div>
+                <div className='links'>
+                    <a href="https://movie-database-gray.vercel.app/" className='demo-link'>DEMO</a>
+                    <a href="https://github.com/Uzrakhan/Movie-Database" className='source-code'>Source Code</a>
+                </div>
+            </div>
+        </div>
+
+        <div className='project1'>
+            <div className='project1-img-name'>
+                <img  src={ReactTodo}
+                width='450px'
+                height='250px'
+                />
+                <h4>React Todo App</h4>
+            </div>
+            <div className='project1-info-link'>
+                <div className='text'>
+                    <span>
+                        A todo app made using React.js , which lets users to  add , delete and mark their todos completed.
+                    </span>
+                </div>
+                <div className='links'>
+                    <a href="https://react-todo-app-seven-kappa.vercel.app/" className='demo-link'>DEMO</a>
+                    <a href="https://github.com/Uzrakhan/React-todo-app" className='source-code'>Source Code</a>
+                </div>
+            </div>
         </div>
     </div>
   )

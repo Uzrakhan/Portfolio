@@ -1,5 +1,5 @@
 import React from 'react'
-const Hero = () => {
+const Hero = ({onLinkClick}) => {
   return (
     <div className='hero'>
         <div className='hero-info'>
@@ -7,8 +7,8 @@ const Hero = () => {
             <h6>I'm Uzra Khan.</h6>
             <h6>A Front-End Developer Building </h6>
             <h6>Awesome Webapps and Websites.</h6>
-            <button className='projects-btn'>PROJECTS</button>
-            <button className='contact-btn'>CONTACT</button>
+            <button className='projects-btn' onClick={() => onLinkClick('projects')}>PROJECTS</button>
+            <button className='contact-btn' onClick={() => onLinkClick('contact')}>CONTACT</button>
         </div>
 
         <div className='hero-image'>

@@ -140,20 +140,38 @@
   justify-content: center;
   margin-left: 1vw;
   padding: 1vw;
+  margin: 2vw;
 }
 
 .project1-img-name h4{
   font-size: 3vw;
 }
 
+.project1-img-name img{
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
 .project1-info-link{
   padding: 1vw;
   
 }
+
+.text{
+  text-align: left;
+}
 .text span{
-  font-size: 2vw;
+  font-size: 1.7vw;
 }
 
+.links{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 1vw;
+  gap: 2vw;
+  
+}
 
 .demo-link{
   padding: 1vw 2vw;
