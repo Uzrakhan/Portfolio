@@ -3,9 +3,16 @@ import { useForm } from '@formspree/react';
 
 
 const Contact = () => {
-  const [state, handleSubmit, reset] = useForm("mzzewbge");
-  if (state.succeeded) {
-    return <p>Thanks for joining!</p>;
+  const [state, handleSubmit] = useForm("mzzewbge");
+  
+
+  const onSubmit = async(e) => {
+    e.preventDefault();
+
+    await handleSubmit(e)
+    if(state.succeeded) {
+      e.target.reset()
+    }
   }
 
   return (
@@ -14,7 +21,7 @@ const Contact = () => {
         <span>Feel free to Contact me by submitting the form below and I will get back to you as soon as possible</span>
       </div>
       <div className='contact-form'>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={onSubmit}>
           <label>NAME</label>
           <input type='text' placeholder='Enter your name' name='name' required/>
           
@@ -28,6 +35,11 @@ const Contact = () => {
          
 
           <button type='submit' disabled={state.submitting}>SUBMIT</button>
+
+           {/* Display success message if the form submission succeeded */}
+          {state.succeeded && (
+            <p>Thank you! Your message has been sent successfully.</p>
+          )}
         </form>
 
         <div className='contact-image'>
