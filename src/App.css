@@ -197,8 +197,7 @@
 
 .contact-div{
   height: 120vh;
-  padding: 2vw;
-  margin: 1vw;
+  padding: 1vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -207,8 +206,8 @@
 
 .contact-div span{
   font-size: 2vw;
-  
 }
+
 .contact-form{
   height: 80vh;
   width: 60%;
@@ -251,4 +250,24 @@ form button{
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+footer{
+  background-color: #0E1646;
+  height: 35vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2vw;
+}
+
+.footer-links{
+  display: flex;
+  gap: 3vw;
+}
+footer a{
+  text-decoration: none;
+
 }
