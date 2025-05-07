@@ -4,7 +4,7 @@ import ECommerce from '../assets/ECommerce.png'
 import XPense from '../assets/Xpense.png'
 import TwoGoodClone from '../assets/TwoGoodClone.png'
 import Movie from '../assets/Movie.png'
-import ReactTodo from '../assets/ReactTodo.png'
+import PokeFinder from '../assets/PokeFinder.png'
 
 const Projects = () => {
   return (
@@ -114,21 +114,21 @@ const Projects = () => {
 
         <div className='project1'>
             <div className='project1-img-name'>
-                <img  src={ReactTodo}
+                <img  src={PokeFinder}
                 width='450px'
                 height='250px'
                 />
-                <h4>React Todo App</h4>
+                <h4>PokeFinder</h4>
             </div>
             <div className='project1-info-link'>
                 <div className='text'>
                     <span>
-                        A todo app made using React.js , which lets users to  add , delete and mark their todos completed.
+                        A React-based web application that allows users to search and browse Pokémon efficiently using the PokeAPI. The app features dynamic search by name or type, responsive design, pagination, and detailed stats/visuals for each Pokémon. Built with React Hooks, Axios for API integration, and React Router for seamless navigation, this project demonstrates my ability to work with external APIs, manage state effectively, and create user-friendly interfaces.
                     </span>
                 </div>
                 <div className='links'>
-                    <a href="https://react-todo-app-seven-kappa.vercel.app/" className='demo-link'>DEMO</a>
-                    <a href="https://github.com/Uzrakhan/React-todo-app" className='source-code'>Source Code</a>
+                    <a href="https://poke-finder-psi.vercel.app/" className='demo-link'>DEMO</a>
+                    <a href="https://github.com/Uzrakhan/PokeFinder" className='source-code'>Source Code</a>
                 </div>
             </div>
         </div>
