@@ -5,11 +5,32 @@ import XPense from '../assets/Xpense.png'
 import TwoGoodClone from '../assets/TwoGoodClone.png'
 import Movie from '../assets/Movie.png'
 import PokeFinder from '../assets/PokeFinder.png'
+import IdeaBoard from '../assets/IdeaBoard.png'
 
 const Projects = () => {
   return (
     <div className='projects-section'>
         <h2>Projects</h2>
+        <div className='project1'>
+            <div className='project1-img-name'>
+                <img  src={IdeaBoard}
+                width='450px'
+                height='250px'
+                />
+                <h4>IdeaBoard</h4>
+            </div>
+            <div className='project1-info-link'>
+                <div className='text'>
+                    <span>
+                        A real time,full-stack web application meticulously crafted to empower users in capturing, organizing, and managing their thoughts. Leveraging a React frontend, Node.js & Express.js backend, MongoDB for data persistence, and Socket.IO for seamless real-time communication, IdeaBoard transforms fleeting ideas into an organized, collaborative space.
+                    </span>
+                </div>
+                <div className='links'>
+                    <a href="https://idea-board-virid.vercel.app/" className='demo-link'>DEMO</a>
+                    <a href="https://github.com/Uzrakhan/IdeaBoard" className='source-code'>Source Code</a>
+                </div>
+            </div>
+        </div>
         <div className='project1'>
             <div className='project1-img-name'>
                 <img  src={ECommerce}
