@@ -39,7 +39,7 @@ const Header = () => {
         <header className="fixed top-0 left-0 w-full z-50 bg-background/95 backdrop-blur-sm shadow-lg border-b border-gray-800">
             <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
                 
-              {/* Logo/Avatar */}
+              
               <Link to="/" onClick={handleLogoClick}>
                   <span className="text-2xl font-extrabold text-primary border-2 border-primary rounded-full w-10 h-10 flex items-center justify-center">
                       UK
