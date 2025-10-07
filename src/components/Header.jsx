@@ -6,11 +6,11 @@ import gsap from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
 // ⭐ CORRECTED SHADCN/UI IMPORTS ⭐
-import {
-    Dialog,
-    DialogContent,
-    DialogTrigger,
-} from "@/components/dialog"; // Import directly from components/dialog
+//import {
+    //Dialog,
+    //DialogContent,
+    //DialogTrigger,
+//} from "@/components/dialog"; // Import directly from components/dialog
 
 gsap.registerPlugin(ScrollToPlugin);
 
