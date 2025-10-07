@@ -62,8 +62,6 @@ const Header = () => {
                       ))}
                   </ul>
               </nav>
-
-              {/* SHADCN MOBILE DIALOG IMPLEMENTATION */}
               
             </div>
         </header>
