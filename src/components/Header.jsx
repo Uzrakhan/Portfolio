@@ -64,37 +64,7 @@ const Header = () => {
               </nav>
 
               {/* SHADCN MOBILE DIALOG IMPLEMENTATION */}
-              <Dialog open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-                  <DialogTrigger asChild>
-                      <button 
-                          className="md:hidden z-50 text-white p-2"
-                          aria-label="Open navigation menu"
-                      >
-                          {/* Simple Hamburger Icon */}
-                          <span className="block h-0.5 w-6 bg-white my-1"></span>
-                          <span className="block h-0.5 w-6 bg-white my-1"></span>
-                          <span className="block h-0.5 w-6 bg-white my-1"></span>
-                      </button>
-                  </DialogTrigger>
-                  
-                  <DialogContent className="fixed inset-0 w-screen h-screen bg-background p-0 border-none rounded-none">
-                      <div className="flex flex-col items-center justify-center h-full">
-                          <ul className="flex flex-col items-center space-y-10 text-3xl font-bold">
-                              {navLinks.map((link) => (
-                                  <li key={link.text}>
-                                      <Link
-                                          to="/"
-                                          onClick={() => scrollToSection(link.href)}
-                                          className="text-neutral hover:text-primary transition-colors"
-                                      >
-                                          {link.text}
-                                      </Link>
-                                  </li>
-                              ))}
-                          </ul>
-                      </div>
-                  </DialogContent>
-              </Dialog>
+              
             </div>
         </header>
     );

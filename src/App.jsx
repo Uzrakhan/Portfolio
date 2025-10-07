@@ -3,10 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ScrollToPlugin from 'gsap/src/ScrollToPlugin';
-// REMOVED: import useLocoScroll from './hooks/useLocoScroll';
 import './App.css';
-
-// Import all your components
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
