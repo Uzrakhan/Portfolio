@@ -1,4 +1,6 @@
 // src/data/portfolioData.js
+import IdeaboardImg from '../assets/IdeaBoardThumbnail.png';
+import TomatoImg from '../assets/TomatoThumbnail.png';
 
 export const PORTFOLIO_DATA = {
     // ----------------------------------------------------
@@ -77,7 +79,7 @@ export const PORTFOLIO_DATA = {
             summary: "A highly scalable, collaborative whiteboard platform built with WebSockets, Next.js, and MongoDB. Features real-time drawing, selective sharing, and persistent session storage.",
             tags: ["MERN Stack", "WebSockets", "Next.js", "TypeScript", "Tailwind CSS"],
             path: "/projects/ideaboard", 
-            image: "https://images.unsplash.com/photo-1739805591936-39f03383c9a9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aWRlYWJvYXJkfGVufDB8fDB8fHww", // Replace with your actual project image path
+            image: IdeaboardImg, // Replace with your actual project image path
             sourceLink: "https://github.com/Uzrakhan/IdeaBoard",
             liveLink: "https://idea-board-virid.vercel.app/",
             videoUrl: "yourvideourl",
@@ -103,7 +105,8 @@ export const PORTFOLIO_DATA = {
             title: "Tomato Food App Clone",
             summary: "A functional clone of a popular food ordering application (like Zomato), demonstrating proficiency in state management, complex routing, and secure payment gateway integration.",
             tags: ["React", "Redux Toolkit", "Node.js", "Express", "MongoDB"],
-            image: "/project-tomato.jpg", // Replace with your actual project image path
+            path: "/projects/tomato-app", 
+            image: TomatoImg, // Replace with your actual project image path
             sourceLink: "https://github.com/Uzrakhan/Tomato-food-app",
             liveLink: "https://tomato-food-app-two.vercel.app/",
             videoUrl: "myvideo",
