@@ -73,13 +73,22 @@ const Hero = () => {
                 ease: "power2.out",
             }, "-=0.9");
 
-            // D. Animate CTA Button
+            // D. Animate CTA Button (intial entrance)
             tl.to(ctaTarget, {
                 scale: 1,
                 opacity: 1,
                 duration: 0.8,
                 ease: "back.out(1.7)",
             }, "-=0.5");
+
+            // Continuos pulse animation
+            tl.to(ctaTarget, {
+                scale: 1.02,
+                duration: 0.8,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+            }, ">")
             
         }, nameWrapRef); 
 
@@ -126,7 +135,8 @@ const Hero = () => {
             {/* CTA Button */}
             <a
               ref={ctaRef}
-              className="inline-block rounded-full bg-primary px-8 py-5 text-sm leading-5 font-medium text-black max-w-fit hover:bg-primary/90 transition-colors duration-300"
+              className="inline-block rounded-full bg-primary px-8 py-5 text-sm leading-5 font-medium text-black max-w-fit hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/50 
+                hover:translate-y-[-2px] transition-colors duration-300"
               href={`mailto:${email}`}
             >
               Get in Touch
