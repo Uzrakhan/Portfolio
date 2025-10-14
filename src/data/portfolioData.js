@@ -1,6 +1,8 @@
 // src/data/portfolioData.js
 import IdeaboardImg from '../assets/IdeaBoardThumbnail.png';
 import TomatoImg from '../assets/TomatoThumbnail.png';
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+
 
 export const PORTFOLIO_DATA = {
     // ----------------------------------------------------
@@ -126,8 +128,8 @@ export const PORTFOLIO_DATA = {
         },
     ],
         socialLinks: [
-        { name: "GitHub", url: "https://github.com/Uzrakhan", icon: "💻" }, // Use your GitHub URL
-        { name: "LinkedIn", url: "https://www.linkedin.com/in/uzra-khan-40b472272/", icon: "💼" }, // Use your LinkedIn URL
-        { name: "Twitter", url: "https://twitter.com/your-username", icon: "🐦" }, // Use your Twitter/X URL
+        { name: "GitHub", url: "https://github.com/Uzrakhan", icon: FaGithub }, // Use your GitHub URL
+        { name: "LinkedIn", url: "https://www.linkedin.com/in/uzra-khan-40b472272/", icon: FaLinkedin }, // Use your LinkedIn URL
+        { name: "Twitter", url: "https://twitter.com/your-username", icon: FaTwitter }, // Use your Twitter/X URL
     ],
 };

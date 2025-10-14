@@ -4,7 +4,11 @@ import path from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react({
+      jsxRuntime: 'automatic', // ✅ THIS MUST BE ADDED for React 17+
+    }),
+  ],
   resolve: {
     alias: {
       // ⭐ ADD THIS ALIAS CONFIGURATION ⭐

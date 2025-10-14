@@ -58,7 +58,7 @@ const About = () => {
         <section 
             ref={sectionRef} 
             id="about" 
-            className="max-w-7xl mx-auto px-6 py-20 md:py-32"
+            className="relative max-w-7xl mx-auto px-6 py-20 md:py-32"
         >
             <h2 className="text-5xl font-extrabold text-white mb-16">About Me</h2>
 

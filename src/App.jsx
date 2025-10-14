@@ -77,6 +77,7 @@ function App() {
                         <div className="pt-32 text-center text-white min-h-[50vh]"><h1 className="text-4xl">404 Not Found</h1></div>
                     </DefaultScrollWrapper>
                 } />
+                
             </Routes>
         </>
     );

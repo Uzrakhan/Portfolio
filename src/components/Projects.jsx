@@ -126,7 +126,7 @@ const Projects = () => {
     }, [projects]);
 
     return (
-        <section ref={sectionRef} id="projects" className="max-w-7xl mx-auto px-6 py-20 md:py-32" data-scroll-section>
+        <section ref={sectionRef} id="projects" className="relative max-w-7xl mx-auto px-6 py-20 md:py-32" data-scroll-section>
             <h2 className="text-5xl font-extrabold text-white mb-16 text-center">
                 Featured Projects
             </h2>
