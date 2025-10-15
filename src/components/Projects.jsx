@@ -29,7 +29,7 @@ const ProjectItem = React.forwardRef(({ project, index }, ref) => {
         >
             {/* Project Details (Text) */}
             <div className={`space-y-6 ${textOrder}`}>
-                <h3 className="text-4xl font-extrabold text-primary mb-2">
+                <h3 className="text-2xl md:text-3xl font-extrabold text-primary mb-2">
                     {project.title}
                 </h3>
                 <p className="text-lg text-gray-300">
@@ -127,7 +127,7 @@ const Projects = () => {
 
     return (
         <section ref={sectionRef} id="projects" className="relative max-w-7xl mx-auto px-6 py-20 md:py-32" data-scroll-section>
-            <h2 className="text-5xl font-extrabold text-white mb-16 text-center">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-16 text-center">
                 Featured Projects
             </h2>
 

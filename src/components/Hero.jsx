@@ -100,7 +100,7 @@ const Hero = () => {
     
 
     return (
-        <section id="page1" className="min-h-screen relative w-full px-6" style={{paddingTop: '50vh'}}> 
+        <section id="page1" className="min-h-screen relative w-full px-6 pt-52 md:pt-48"> 
             
             <div className='absolute top-0 left-0 w-full h-full z-0 pointer-events-none'>
                 <ParticlesBackground />
@@ -109,22 +109,22 @@ const Hero = () => {
             {/* ⭐ LAYER 2: UI CONTENT (Z-INDEX 10) ⭐ */}
             <div className='relative z-10'>
                 {/* NAME - Must be wrapped for the "from below" effect */}
-                <div ref={nameWrapRef} className="overflow-hidden mb-5">
+                <div ref={nameWrapRef} className="overflow-hidden mb-4 md:mb-6">
                     <h1
-                        className="font-serif text-white uppercase font-black"
-                        // Inline style to mimic your CSS: font-size: 15vw; line-height: 11vw; letter-spacing: -8px;
-                        style={{fontSize: '15vw', lineHeight: '15vw', letterSpacing: '-8px', fontFamily: "'Dancing Script', cursive", display: 'block'}}
+                        className="font-serif text-white uppercase font-black text-5xl tracking-tighter
+                        md:text-9xl
+                        "
+                        style={{ fontFamily: "'Dancing Script', cursive", display: 'block' }}
                     >
                         <span ref={nameTextRef} className='inline-block'>{name}</span>
                     </h1>
                 </div>
 
                 {/* SPECIALTY - Must be wrapped for the "from below" effect */}
-                <div ref={specialtyWrapRef} className="overflow-hidden mb-9">
+                <div ref={specialtyWrapRef} className="overflow-hidden mb-6 md:mb-8">
                     <p
-                        className="font-serif text-primary uppercase font-bold"
-                        // Placeholder styling - adjust to match your 'Two Good' look
-                        style={{fontSize: '4vw', fontFamily: "'Bodoni Moda', serif"}} 
+                        className="font-serif text-primary uppercase font-bold text-xl md:text-5xl"
+                        style={{fontFamily: "'Bodoni Moda', serif"}} 
                     >
                         <span ref={specialtyTextRef} className='inline-block'>{specialty}</span>
                     </p>
@@ -133,8 +133,7 @@ const Hero = () => {
                 {/* SUMMARY - Must be wrapped for the "from below" effect */}
                 <div ref={summaryWrapRef} className="overflow-hidden mb-16">
                     <p 
-                        className="text-base font-normal text-neutral md:text-lg max-w-2xl"
-                        style={{fontSize: '1.4vw'}} // Placeholder styling
+                        className="text-sm font-normal text-neutral md:text-lg max-w-2xl"
                     >
                         <span ref={summaryTextRef} className='inline-block'>{summary}</span>
                     </p>
@@ -143,7 +142,7 @@ const Hero = () => {
                 {/* CTA Button */}
                 <a
                 ref={ctaRef}
-                className="inline-block rounded-full bg-primary px-8 py-5 text-sm leading-5 font-medium text-black max-w-fit hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/50 
+                className="inline-block rounded-full bg-primary px-4 py-2 text-sm leading-5 font-medium text-black max-w-fit hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/50 
                     hover:translate-y-[-2px] transition-colors duration-300"
                 href={`mailto:${email}`}
                 >

@@ -60,19 +60,19 @@ const About = () => {
             id="about" 
             className="relative max-w-7xl mx-auto px-6 py-20 md:py-32"
         >
-            <h2 className="text-5xl font-extrabold text-white mb-16">About Me</h2>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-16 text-center">About Me</h2>
 
             {/* ⭐ SINGLE COLUMN LAYOUT: Removed grid and column spans ⭐ */}
             <div ref={textRef} className="max-w-4xl mx-auto space-y-6">
                 
                 {/* Main About Text */}
                 <p 
-                    className="text-xl leading-relaxed text-neutral border-l-4 border-primary pl-6 py-2" // Added professional styling
+                    className="text-l md:text-xl leading-relaxed text-neutral border-l-4 border-primary pl-6 py-2" // Added professional styling
                     dangerouslySetInnerHTML={{ __html: description }}
                 />
 
                 {/* Additional Text / MERN Stack Philosophy */}
-                <p className="text-lg text-white pt-4">
+                <p className="text-l md:text-xl text-white pt-4">
                     <strong className="text-primary font-bold">Technology Focus:</strong> I leverage the MERN stack (MongoDB, Express, React, Node.js) for a unified JavaScript environment, integrating TypeScript for type safety and Tailwind CSS for rapid, utility-first styling.
                 </p>
                 

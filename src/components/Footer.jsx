@@ -1,100 +1,184 @@
 // src/components/Footer.jsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { Github, Linkedin, Twitter, Mail, Coffee, Code2, Terminal } from 'lucide-react';
 
 
 const Footer = () => {
     const { socialLinks, hero } = PORTFOLIO_DATA;
     const currentYear = new Date().getFullYear();
+    const [statusDot, setStatusDot] = useState(true);
 
-    // A simple list of key sections for professional footers
-    const keySections = [
-        { name: "Projects", href: "#projects" },
-        { name: "About", href: "#about" },
-        // Assuming your 'id="contact"' on the footer is also a navigation point
-        { name: "Contact", href: "#contact" }, 
-    ];
+    //animation for status dot
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setStatusDot(prev => !prev)
+        }, 1000);
+        return () => clearInterval(interval)
+    },[]);
+
+    const techStack = ['React', 'Node.js', 'TypeScript', 'MongoDB'];
 
     return (
-        <footer id="contact" className="relative bg-gray-900 border-t border-gray-800">
-            <div className="max-w-7xl mx-auto px-6 py-6 md:py-8">
-                
-                {/* 1. Main Grid Layout for modern footer structure */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-gray-700 pb-10 mb-8">
+        <div className='min-h-screen flex items-end'>
+            <footer id="contact" className="relative w-full border-t border-gray-800">
+                <div className="max-w-7xl mx-auto px-6 md:px-12 md:py-16">
                     
-                    {/* Column 1: Contact CTA & Primary Identity */}
-                    <div className="flex flex-col items-start space-y-4">
-                        <h3 className="text-xl font-bold text-primary">
-                            {hero.name || "Your Name"}
-                        </h3>
-                        <p className="text-sm text-gray-400 max-w-xs">
-                            Let's build something extraordinary. I'm available for new projects and collaborations.
-                        </p>
-                        <a
-                            href={`mailto:${hero.email}`}
-                            className="flex items-center space-x-2 mt-2 px-6 py-2 text-md font-semibold bg-primary text-black rounded-lg 
-                                       shadow-md transition-all duration-300 hover:scale-[1.05] hover:bg-primary/90"
-                        >
-                            <span>Contact Now</span>
-                        </a>
-                    </div>
+                    {/* 1. Main Grid Layout for modern footer structure */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-gray-700 pb-10 mb-8">
+                        
+                        {/* Column 1: Contact CTA & Primary Identity */}
+                        <div className="flex flex-col items-start space-y-2">
+                            <h3 className="text-2xl font-bold text-primary">
+                                Uzra Khan
+                            </h3>
+                            <p className="text-sm text-gray-400 max-w-xs">
+                                Let's build something extraordinary. I'm available for new projects and collaborations.
+                            </p>
+                            <a
+                                href="mailto:uzrakhan539@gmail.com"
+                                className="flex items-center justify-center space-x-2 mt-2 px-6 py-2 w-full md:w-auto text-md font-semibold bg-blue-400 text-black rounded-lg shadow-lg transition-all duration-300 hover:scale-105 hover:bg-blue-200 hover:shadow-blue-500/50"
+                            >
+                                <Mail size={18} />
+                                <span>Contact Now</span>
+                            </a>
+                        </div>
 
-                    {/* Column 2: Quick Links / Site Map */}
-                    <div className="flex flex-col items-start">
-                        <h3 className="text-lg font-semibold text-white mb-4 uppercase tracking-wider">
-                            Quick Links
-                        </h3>
-                        <ul className="space-y-3">
-                            {keySections.map((item) => (
-                                <li key={item.name}>
-                                    <a 
-                                        href={item.href}
-                                        className="text-gray-400 hover:text-white transition-colors duration-200 text-base"
-                                    >
-                                        {item.name}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                        <div className='flex flex-col items-start'>
+                            <h3 className='text-lg font-semibold text-white mb-4 uppercase tracking-wider flex items-center gap-2'>
+                                <Terminal size={18} className='text-blue-500'/>
+                                Developer Status
+                            </h3>
 
-                    {/* Column 3: Social Media Links */}
-                    <div className="flex flex-col items-start">
-                        <h3 className="text-lg font-semibold text-white mb-4 uppercase tracking-wider">
-                            Connect
-                        </h3>
-                        <div className="flex space-x-6">
-                            {socialLinks.map((link) => {
-                                const Icon = link.icon;
-                                return (
-                                    <a  
-                                        key={link.name}
-                                        href={link.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        title={`Connect on ${link.name}`}
-                                        className="text-2xl text-gray-400 hover:text-white transition-colors duration-200"
-                                    >
-                                        <Icon />
-                                    </a>
-                                )
-                            })}
+                            {/*Terminal box */}
+                            <div className='w-full bg-gray-900 border border-gray-700 rounded-lg overflow-hidden shadow-lg'>
+                                {/*Terminal header */}
+                                <div className='bg-gray-800 px-4 py-2 flex items-center gap-2 border-b border-gray-700'>
+                                    <div className='flex gap-1.5'>
+                                        <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                                        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                        <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                                    </div>
+                                    <span className="text-xs text-gray-400 ml-2">status.sh</span>
+                                </div>
+
+                                {/* Terminal content */}
+                                <div className="p-4 font-mono text-sm space-y-2">
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-blue-500">$</span>
+                                        <span className="text-gray-300">cat availability.txt</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 ml-4">
+                                        <div className={`w-2 h-2 rounded-full ${statusDot ? 'text-blue-500' : 'bg-blue-500/30'} transition-all duration-300`}></div>
+                                        <span className="text-blue-500">Available for hire</span>
+                                    </div>
+
+                                    <div className="flex items-center gap-2 mt-3">
+                                        <span className="text-blue-500">$</span>
+                                        <span className="text-gray-300">cat current_focus.txt</span>
+                                    </div>
+                                    <div className="ml-4 text-gray-400 text-xs space-y-1">
+                                        <p>→ Building with React.js</p>
+                                        <p>→ Exploring Websockets</p>
+                                    </div>
+                                    <div className="flex items-center gap-2 mt-3">
+                                        <span className="text-blue-500">$</span>
+                                        <span className="text-gray-300 animate-pulse">_</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Column 2: Quick Links / Site Map */}
+                        <div className="flex flex-col items-start space-y-6">
+                            <div>
+                                <h3 className="text-lg font-semibold text-white mb-4 uppercase tracking-wider">
+                                    Quick Links
+                                </h3>
+                                <ul className='space-y-3'>
+                                    <li>
+                                        <a 
+                                            href="#projects"
+                                            className="text-gray-400 hover:text-blue-500 transition-colors duration-200 text-base flex items-center gap-2 group"
+                                            >
+                                            <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
+                                            Projects
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a 
+                                            href="#about"
+                                            className="text-gray-400 hover:text-blue-500 transition-colors duration-200 text-base flex items-center gap-2 group"
+                                            >
+                                            <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
+                                            About
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a 
+                                            href="#contact"
+                                            className="text-gray-400 hover:text-blue-500 transition-colors duration-200 text-base flex items-center gap-2 group"
+                                            >
+                                            <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
+                                            Contact
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a 
+                                            href="https://drive.google.com/file/d/1Zp69m0uSXaqTiAPrTt8fw6XCRDgUJ-_j/view?usp=sharing"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-gray-400 hover:text-blue-500 transition-colors duration-200 text-base flex items-center gap-2 group"
+                                            >
+                                            <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
+                                            Resume
+                                            <span className="text-xs text-gray-600 group-hover:text-blue-500/70">↗</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        {/* Column 3: Social Media Links */}
+                        <div>
+                            <h3 className="text-lg font-semibold text-white mb-4 uppercase tracking-wider">
+                                Connect
+                            </h3>
+                            <div className="flex space-x-6">
+                                {socialLinks.map((link) => {
+                                    const Icon = link.icon;
+                                    return (
+                                        <a  
+                                            key={link.name}
+                                            href={link.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            title={`Connect on ${link.name}`}
+                                            className="text-2xl text-gray-400 hover:text-blue-500 hover:scale-110 transition-all duration-200 transform"
+                                        >
+                                            <Icon />
+                                        </a>
+                                    )
+                                })}
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                {/* 2. Copyright and Attribution (Bottom Row) */}
-                <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0">
-                    <p className="text-sm text-gray-500">
-                        &copy; {currentYear} {hero.name}. All rights reserved.
-                    </p>
-                    <p className="text-xs text-gray-600">
-                        Crafted with React, Tailwind,GSAP, Particles.js and a passion for clean code.
-                    </p>
-                </div>
+                    {/* 2. Copyright and Attribution (Bottom Row) */}
+                    <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0">
+                        <p className="text-sm text-gray-500">
+                            &copy; {currentYear} Uzra Khan. All rights reserved.
+                        </p>
+                        <p className="text-xs text-gray-600 flex items-center gap-2 flex-wrap justify-center">
+                            <span>Crafted with React, Tailwind & GSAP</span>
+                            <span className="text-red-500">♥</span>
+                            <span className="hidden md:inline">Fueled by ☕ and curiosity</span>
+                        </p>
+                    </div>
 
-            </div>
-        </footer>
+                </div>
+            </footer>
+        </div>
     );
 };
 

@@ -68,7 +68,7 @@ const LearningLog = () => {
 
     return (
         <section ref={sectionRef} id="learning-log" className="max-w-4xl mx-auto px-6 py-20 md:py-32" data-scroll-section>
-            <h2 className="text-4xl font-extrabold text-white mb-16 text-center">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-16 text-center">
                 {title}
             </h2>
 

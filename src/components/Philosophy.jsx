@@ -73,7 +73,7 @@ const Philosophy = () => {
 
     return (
         <section ref={sectionRef} id="philosophy" className="max-w-7xl mx-auto px-6 py-20 md:py-32" data-scroll-section>
-            <h2 className="text-4xl font-extrabold text-white mb-16 text-center">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-16 text-center">
                 {title}
             </h2>
 
@@ -86,7 +86,7 @@ const Philosophy = () => {
                     >
                         <span className="text-4xl mb-4 block">{pillar.icon}</span>
                         <h3 className="text-xl font-bold text-white mb-2">{pillar.title}</h3>
-                        <p className="text-sm text-neutral">{pillar.description}</p>
+                        <p className="text-sm md:text-lg text-neutral">{pillar.description}</p>
                     </div>
                 ))}
             </div>
