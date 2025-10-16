@@ -1,5 +1,5 @@
 // src/components/Header.jsx
-import React, { useState } from 'react'; // 👈 RE-IMPORTED useState
+import React, { useState } from 'react';
 import { PORTFOLIO_DATA } from "../data/portfolioData";
 import { Link } from "react-router-dom";
 import gsap from 'gsap';
@@ -120,6 +120,16 @@ const Header = () => {
                                 </a>
                             </li>
                         ))}
+                        <li>
+                            <a 
+                                href="https://drive.google.com/file/d/1cV-9j30HwHAsE4zJ7KlsuvFzq3OItQ0o/view?usp=sharing" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="relative text-neutral hover:text-white font-medium transition-colors duration-200"
+                            >
+                                Resume
+                            </a>
+                        </li>
                     </ul>
                 </nav>
 
@@ -160,6 +170,16 @@ const Header = () => {
                             {link.text}
                         </motion.a>
                     ))}
+                    <motion.a 
+                        href="https://drive.google.com/file/d/1cV-9j30HwHAsE4zJ7KlsuvFzq3OItQ0o/view?usp=sharing"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        variants={itemVariants} 
+                        className="text-white text-2xl font-extrabold hover:text-primary transition duration-300 w-full text-center py-4 border-b border-gray-800"
+                        >
+                        Resume
+                    </motion.a>
+
                 </div>
             </motion.div>
         </header>

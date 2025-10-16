@@ -136,7 +136,7 @@ const Footer = () => {
                                     </li>
                                     <li>
                                         <motion.a 
-                                            href="https://drive.google.com/file/d/1Zp69m0uSXaqTiAPrTt8fw6XCRDgUJ-_j/view?usp=sharing"
+                                            href="https://drive.google.com/file/d/1cV-9j30HwHAsE4zJ7KlsuvFzq3OItQ0o/view?usp=sharing"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="text-gray-400 hover:text-blue-500 transition-colors duration-200 text-base flex items-center gap-2 group"
