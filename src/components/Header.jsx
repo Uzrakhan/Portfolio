@@ -1,24 +1,73 @@
 // src/components/Header.jsx
-import React from 'react'; // Removed useState
+import React, { useState } from 'react'; // 👈 RE-IMPORTED useState
 import { PORTFOLIO_DATA } from "../data/portfolioData";
 import { Link } from "react-router-dom";
 import gsap from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
-
-// ⭐ CRITICAL: Import your logo image file here. ⭐
+import { motion } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 import UzraLogo from '../assets/Logo.png'; 
-// NOTE: Adjust 'Logo.png' to your exact file name and extension (e.g., 'uzra-avatar.svg')
 
 gsap.registerPlugin(ScrollToPlugin);
 
+
+// --- FRAMER MOTION VARIANTS ---
+
+const menuVariants = {
+    closed: {
+        x: "-100%", 
+        transition: { 
+            type: "spring", 
+            stiffness: 400, 
+            damping: 40,
+            staggerChildren: 0.05,
+            staggerDirection: -1 
+        }
+    },
+    open: {
+        x: 0, 
+        transition: { 
+            type: "spring", 
+            stiffness: 200, 
+            damping: 40,
+            staggerChildren: 0.1,
+            delayChildren: 0.2
+        }
+    }
+}
+
+const itemVariants = {
+    closed: {
+        y: 50, 
+        opacity: 0,
+        transition: { duration: 0.3 }
+    },
+    open: { 
+        y: 0, 
+        opacity: 1, 
+        transition: { 
+            type: "spring", 
+            stiffness: 400, 
+            damping: 25 
+        } 
+    },
+}
+
+// --- HEADER COMPONENT ---
+
 const Header = () => {
     const { navLinks } = PORTFOLIO_DATA;
-    // Removed: const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false); // 👈 Correctly using state
 
     const scrollToSection = (id) => {
-        const targetElement = document.getElementById(id);
+        const targetElement = document.getElementById(id.replace('#', '')); // Remove '#' for document.getElementById
+        
+        // ⭐ Close the mobile menu when a section is clicked ⭐
+        if (isOpen) {
+            setIsOpen(false); 
+        }
+        
         if (targetElement) {
-            // No need to close a menu, so we go straight to scrolling
             gsap.to(window, {
                 duration: 1.2,
                 scrollTo: {
@@ -31,17 +80,21 @@ const Header = () => {
     };
 
     const handleLogoClick = () => {
-        // No need for setIsMenuOpen(false)
+        if (isOpen) {
+            setIsOpen(false); // Close menu if logo is clicked
+        }
         gsap.to(window, { duration: 1.2, scrollTo: 0, ease: 'power2.inOut' });
     };
     
-    // Removed: const toggleMenu = () => { ... }
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
 
     return (
         <header className="fixed top-0 left-0 w-full z-50 bg-background/95 backdrop-blur-sm shadow-lg border-b border-gray-800">
             <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
                 
-                {/* Logo/Avatar - Now uses the imported image */}
+                {/* Logo/Avatar */}
                 <Link to="/" onClick={handleLogoClick}>
                     <img 
                         src={UzraLogo} 
@@ -50,28 +103,65 @@ const Header = () => {
                     />
                 </Link>
 
-                {/* Desktop Navigation Links - Shown only on MD screens and up */}
+                {/* Desktop Navigation Links */}
                 <nav className="hidden md:block">
                     <ul className="flex space-x-8">
                         {navLinks.map((link) => (
                             <li key={link.text}>
-                                <Link
-                                    to="/"
-                                    onClick={() => scrollToSection(link.href)}
+                                <a // Use <a> instead of <Link> for hash-based scrolling
+                                    href={link.href}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        scrollToSection(link.href);
+                                    }}
                                     className="relative text-neutral hover:text-white font-medium transition-colors duration-200"
                                 >
                                     {link.text}
-                                </Link>
+                                </a>
                             </li>
                         ))}
                     </ul>
                 </nav>
 
-                {/* ⭐ IMPORTANT: The mobile hamburger button is removed here. ⭐ */}
-                {/* On small screens, the nav links will remain hidden, and there will be no way to navigate. */}
+                {/* ⭐ HAMBURGER TOGGLE BUTTON (Visible only on mobile) ⭐ */}
+                <button 
+                    onClick={toggleMenu} 
+                    className="md:hidden text-white hover:text-primary z-[60] focus:outline-none"
+                    aria-label="Toggle Menu"
+                >
+                    {isOpen ? <X size={28} /> : <Menu size={28} />}
+                </button>
             </div>
             
-            {/* ⭐ IMPORTANT: The mobile menu overlay is removed here. ⭐ */}
+            {/* ⭐ MOBILE MENU FLYOUT (Framer Motion) ⭐ */}
+            <motion.div 
+                variants={menuVariants} 
+                animate={isOpen ? "open" : "closed"}
+                initial="closed" 
+                
+                className={`
+                    md:hidden fixed top-0 left-0 w-full h-screen 
+                    bg-gray-900 
+                `}
+                style={{ zIndex: 55, paddingTop: '72px' }} // 72px is roughly the height of the header (py-4)
+            >
+                <div className="px-6 flex flex-col items-center space-y-4">
+                    {navLinks.map((link) => (
+                        <motion.a 
+                            key={link.text} 
+                            href={link.href} 
+                            onClick={(e) => {
+                                e.preventDefault();
+                                scrollToSection(link.href); // This now handles closing the menu
+                            }} 
+                            variants={itemVariants} 
+                            className="text-white text-2xl font-extrabold hover:text-primary transition duration-300 w-full text-center py-4 border-b border-gray-800"
+                        >
+                            {link.text}
+                        </motion.a>
+                    ))}
+                </div>
+            </motion.div>
         </header>
     );
 };

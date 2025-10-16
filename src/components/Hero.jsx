@@ -2,7 +2,8 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import ParticlesBackground from './ParticlesBackground';
-// NOTE: Assuming your portfolioData structure is simple:
+import { motion } from 'framer-motion';
+
 const PORTFOLIO_DATA = { 
     hero: { 
         name: "UZRA KHAN", 
@@ -82,15 +83,6 @@ const Hero = () => {
                 duration: 0.8,
                 ease: "back.out(1.7)",
             }, "-=0.5");
-
-            // Continuos pulse animation
-            tl.to(ctaTarget, {
-                scale: 1.02,
-                duration: 0.8,
-                repeat: -1,
-                yoyo: true,
-                ease: "sine.inOut"
-            }, ">")
             
         }, nameWrapRef); 
 
@@ -140,14 +132,23 @@ const Hero = () => {
                 </div>
 
                 {/* CTA Button */}
-                <a
+                <motion.a
                 ref={ctaRef}
-                className="inline-block rounded-full bg-primary px-4 py-2 text-sm leading-5 font-medium text-black max-w-fit hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/50 
-                    hover:translate-y-[-2px] transition-colors duration-300"
+                className="inline-block rounded-full bg-primary px-4 py-2 text-sm leading-5 font-medium text-black max-w-fit duration-300"
                 href={`mailto:${email}`}
+
+                whileHover={{
+                    backgroundColor: "#E5E7EB",
+                    color: "#000000",
+                    y: -2,
+                    scale: 1.05,
+                    boxShadow: "0 10px 15px -3px rgba(255, 179, 0, 0.4), 0 4px 6px -2px rgba(255, 179, 0, 0.2)"
+                }}
+                whileTap={{ scale: 0.98, y: 0 }}
+                transition={{ type: "spring", stiffness: 700, damping: 20 }}
                 >
-                Get in Touch
-                </a>
+                    Get In Touch
+                </motion.a>
             </div>
         </section>
     );

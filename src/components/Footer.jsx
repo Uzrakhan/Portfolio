@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { Github, Linkedin, Twitter, Mail, Coffee, Code2, Terminal } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 
 const Footer = () => {
@@ -97,43 +98,56 @@ const Footer = () => {
                                 </h3>
                                 <ul className='space-y-3'>
                                     <li>
-                                        <a 
+                                        <motion.a 
                                             href="#projects"
                                             className="text-gray-400 hover:text-blue-500 transition-colors duration-200 text-base flex items-center gap-2 group"
+                                            whileHover={{ scale: 1.3 }}
+                                            whileTap={{ scale: 0.9 }} // Shrinks on tap
+                                            transition={{ type: "spring", stiffness: 500, damping: 20 }}
+
                                             >
                                             <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
                                             Projects
-                                        </a>
+                                        </motion.a>
                                     </li>
                                     <li>
-                                        <a 
+                                        <motion.a 
                                             href="#about"
                                             className="text-gray-400 hover:text-blue-500 transition-colors duration-200 text-base flex items-center gap-2 group"
+                                            whileHover={{ scale: 1.3 }}
+                                            whileTap={{ scale: 0.9 }} // Shrinks on tap
+                                            transition={{ type: "spring", stiffness: 500, damping: 20 }}
                                             >
                                             <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
                                             About
-                                        </a>
+                                        </motion.a>
                                     </li>
                                     <li>
-                                        <a 
+                                        <motion.a 
                                             href="#contact"
                                             className="text-gray-400 hover:text-blue-500 transition-colors duration-200 text-base flex items-center gap-2 group"
+                                            whileHover={{ scale: 1.3 }}
+                                            whileTap={{ scale: 0.9 }} // Shrinks on tap
+                                            transition={{ type: "spring", stiffness: 500, damping: 20 }}
                                             >
                                             <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
                                             Contact
-                                        </a>
+                                        </motion.a>
                                     </li>
                                     <li>
-                                        <a 
+                                        <motion.a 
                                             href="https://drive.google.com/file/d/1Zp69m0uSXaqTiAPrTt8fw6XCRDgUJ-_j/view?usp=sharing"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="text-gray-400 hover:text-blue-500 transition-colors duration-200 text-base flex items-center gap-2 group"
+                                            whileHover={{ scale: 1.3 }}
+                                            whileTap={{ scale: 0.9 }} // Shrinks on tap
+                                            transition={{ type: "spring", stiffness: 500, damping: 20 }}
                                             >
                                             <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
                                             Resume
                                             <span className="text-xs text-gray-600 group-hover:text-blue-500/70">↗</span>
-                                        </a>
+                                        </motion.a>
                                     </li>
                                 </ul>
                             </div>
@@ -148,16 +162,19 @@ const Footer = () => {
                                 {socialLinks.map((link) => {
                                     const Icon = link.icon;
                                     return (
-                                        <a  
+                                        <motion.a  
                                             key={link.name}
                                             href={link.url}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             title={`Connect on ${link.name}`}
-                                            className="text-2xl text-gray-400 hover:text-blue-500 hover:scale-110 transition-all duration-200 transform"
+                                            className="text-2xl text-gray-400 duration-200"
+                                            whileHover={{ scale: 1.3, rotate: 5 }} // Icon grows and slightly rotates
+                                            whileTap={{ scale: 0.9 }} // Shrinks on tap
+                                            transition={{ type: "spring", stiffness: 500, damping: 20 }}
                                         >
                                             <Icon />
-                                        </a>
+                                        </motion.a>
                                     )
                                 })}
                             </div>
@@ -169,7 +186,7 @@ const Footer = () => {
                         <p className="text-sm text-gray-500">
                             &copy; {currentYear} Uzra Khan. All rights reserved.
                         </p>
-                        <p className="text-xs text-gray-600 flex items-center gap-2 flex-wrap justify-center">
+                        <p className="text-sm text-gray-600 flex items-center gap-2 flex-wrap justify-center">
                             <span>Crafted with React, Tailwind & GSAP</span>
                             <span className="text-red-500">♥</span>
                             <span className="hidden md:inline">Fueled by ☕ and curiosity</span>

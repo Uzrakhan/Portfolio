@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,11 +22,18 @@ const ProjectItem = React.forwardRef(({ project, index }, ref) => {
 
     return (
         // ⭐ Use the forwarded ref here ⭐
-        <Link 
+        <motion.a 
             ref={ref} 
-            to={project.path}
+            href={project.path}
             // ⭐ Add a common class for GSAP targeting ⭐
-            className="project-card grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-24 lg:mb-40 border-b border-gray-800 pb-20 lg:pb-32 group cursor-pointer hover:bg-gray-900/50 transition-colors duration-300"
+            className="project-card grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-24 lg:mb-40 border-b border-gray-800 pb-20 lg:pb-32 group cursor-pointer transition-colors duration-300"
+            
+            whileHover={{
+                y: -5,
+                boxShadow: "0 10px 20px rgba(0, 0, 0, 0.4)",
+                backgroundColor: "rgba(17, 24, 39, 0.5)",
+            }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
         >
             {/* Project Details (Text) */}
             <div className={`space-y-6 ${textOrder}`}>
@@ -84,7 +92,7 @@ const ProjectItem = React.forwardRef(({ project, index }, ref) => {
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
             </div>
-        </Link>
+        </motion.a>
     );
 });
 // Need to set displayName for debugging purposes
