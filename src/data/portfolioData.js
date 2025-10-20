@@ -2,6 +2,7 @@
 import IdeaboardImg from '../assets/IdeaBoardThumbnail.png';
 import TomatoImg from '../assets/TomatoThumbnail.png';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import IdeaboardDemo from '../assets/IdeaboardDemo.mp4';
 
 export const PORTFOLIO_DATA = {
     // ----------------------------------------------------
@@ -83,7 +84,7 @@ export const PORTFOLIO_DATA = {
             image: IdeaboardImg, // Replace with your actual project image path
             sourceLink: "https://github.com/Uzrakhan/IdeaBoard",
             liveLink: "https://idea-board-virid.vercel.app/",
-            videoUrl: '/IdeaboardDemo.mp4',
+            videoUrl: IdeaboardDemo,
             description: "This project addresses the challenge of remote collaboration by providing a real-time, shared digital space for users to brainstorm and draw simultaneously.",
             approach: "Initially, I explored different real-time communication protocols and settled on <strong>WebSockets</strong> for their low-latency, bidirectional capabilities essential for instant drawing updates. For managing user interactions and drawing states, a robust frontend architecture was critical, leading me to use React. The backend was designed with <strong>Node.js</strong> and <strong>Express</strong> to handle concurrent WebSocket connections and manage drawing data persistence efficiently. I prioritized scalability for concurrent users and implemented automated backend tests to ensure reliability of critical API endpoints.",
             techStack: ["TypeScript", "React", "Tailwind CSS", "Socket.io", "Node.js", "Express", "MongoDB"],
@@ -113,9 +114,9 @@ export const PORTFOLIO_DATA = {
             videoUrl: "myvideo",
             description: "This application replicates a food ordering platform, simplifying the process of discovering restaurants and authenticating users for a personalized dining experience.",
             approach: "The primary challenge was implementing a secure and efficient authentication system, which was solved by leveraging Firebase Authentication to quickly integrate email/password and Google sign-in. I focused on ensuring robust session management and protecting user-specific routes. For data presentation, dynamic filtering of restaurants was key to enhancing user experience, allowing for quick discovery based on various criteria.",
-            techStack: ["TypeScript", "React", "Tailwind CSS", "Socket.io", "Node.js", "Express", "MongoDB"],
+            techStack: ["React", "Tailwind CSS", "Firebase"],
             techDecisions: {
-                "React": "Chsoen for its efficiency in building dynamic user interfaces, particularly for rendering lists of restaurants and managing complex UI states related to filtering and authentication flows. Its component reusability sped up development.",
+                "React": "Chosen for its efficiency in building dynamic user interfaces, particularly for rendering lists of restaurants and managing complex UI states related to filtering and authentication flows. Its component reusability sped up development.",
                 "Firebase": "Selected as the backend-as-a-service (BaaS) for its rapid authentication capabilities and real-time database (Firestore), which simplified user management and data storage, significantly reducing custom backend setup time. ",
                 "Tailwind CSS": "Used for its utility-first approach to quickly style responsive components like restaurant cards and navigation, ensuring a consistent and adaptive design across devices without writing much custom CSS."
             },

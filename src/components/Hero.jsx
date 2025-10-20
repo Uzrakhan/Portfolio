@@ -26,6 +26,7 @@ const Hero = () => {
     const nameTextRef = useRef(null);
     const specialtyTextRef = useRef(null);
     const summaryTextRef = useRef(null);
+    const hoverRef = useRef(null);
     
     const textTargets = [nameTextRef, specialtyTextRef, summaryTextRef];
 
@@ -83,11 +84,51 @@ const Hero = () => {
                 duration: 0.8,
                 ease: "back.out(1.7)",
             }, "-=0.5");
-            
-        }, nameWrapRef); 
 
-        return () => ctx.revert(); 
-        
+
+            const specialtyText = specialtyTextRef.current;
+            const hoverElement = hoverRef.current;
+            
+            let highlightTween = null;
+
+            const PRIMARY_COLOR_HEX = '#FFB300'; 
+            const INITIAL_COLOR_HEX = '#2563EB'; 
+
+            const onMouseEnter = () => {
+                if (highlightTween) highlightTween.kill();
+                
+                highlightTween = gsap.to(specialtyText, {
+                    color: PRIMARY_COLOR_HEX, 
+                    duration: 0.3,
+                    ease: 'power1.out',
+                });
+            };
+
+            const onMouseLeave = () => {
+                if (highlightTween) highlightTween.kill();
+
+                highlightTween = gsap.to(specialtyText, {
+                    color: INITIAL_COLOR_HEX, 
+                    duration: 0.3,
+                    ease: 'power1.out',
+                });
+            };
+
+            if (hoverElement) {
+                hoverElement.addEventListener('mouseenter', onMouseEnter);
+                hoverElement.addEventListener('mouseleave', onMouseLeave);
+            }
+
+            return () => {
+                ctx.revert();
+                // IMPORTANT: Remove listeners to prevent memory leaks
+                if (hoverElement) {
+                    hoverElement.removeEventListener('mouseenter', onMouseEnter);
+                    hoverElement.removeEventListener('mouseleave', onMouseLeave);
+                }
+            };
+
+        }, nameWrapRef) 
     }, []);
     
 
@@ -115,10 +156,22 @@ const Hero = () => {
                 {/* SPECIALTY - Must be wrapped for the "from below" effect */}
                 <div ref={specialtyWrapRef} className="overflow-hidden mb-6 md:mb-8">
                     <p
-                        className="font-serif text-primary uppercase font-bold text-xl md:text-5xl"
+                        className="font-serif uppercase font-bold text-xl md:text-5xl cursor-pointer
+                        relative group inline-block p-2 rounded-lg transition-all duration-300"
                         style={{fontFamily: "'Bodoni Moda', serif"}} 
+                        ref={hoverRef}
                     >
-                        <span ref={specialtyTextRef} className='inline-block'>{specialty}</span>
+                        <div 
+                            className="absolute inset-0 bg-primary/20 rounded-lg 
+                                       opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        ></div>
+                        <span 
+                            ref={specialtyTextRef} 
+                            // Set initial color class. GSAP will animate the change.
+                            className='inline-block relative z-10 text-blue-600' 
+                        >
+                            {specialty}
+                        </span>
                     </p>
                 </div>
 
@@ -134,7 +187,7 @@ const Hero = () => {
                 {/* CTA Button */}
                 <motion.a
                 ref={ctaRef}
-                className="inline-block rounded-full bg-primary px-4 py-2 text-sm leading-5 font-medium text-black max-w-fit duration-300"
+                className="inline-block rounded-full bg-primary px-10 py-5 text-base leading-5 font-medium text-black max-w-fit duration-300"
                 href={`mailto:${email}`}
 
                 whileHover={{

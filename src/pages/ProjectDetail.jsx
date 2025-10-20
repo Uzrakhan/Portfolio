@@ -124,8 +124,18 @@ const ProjectDetail = () => {
                 }
             });
 
+            const videoBlock = contentRef.current.children[3];
+
+            gsap.from(videoBlock, {
+                opacity: 0,
+                scale: 0.98, // Starts slightly smaller
+                duration: 1.2, // Smooth, slow duration
+                ease: "power2.out",
+                delay: 0.5 // Runs after hero image entrance
+            });
+
             // If you want all other blocks (Video, Outcome) to use the original staggered animation:
-            const remainingBlocks = gsap.utils.toArray(contentRef.current.children).slice(3); // Assuming overview, approach, tech decisions are the first three
+            const remainingBlocks = gsap.utils.toArray(contentRef.current.children).slice(4); // Assuming overview, approach, tech decisions are the first three
 
             gsap.from(remainingBlocks, {
                 opacity: 0,
