@@ -106,7 +106,7 @@ export const PORTFOLIO_DATA = {
         {
             title: "Tomato Food App Clone",
             summary: "A functional clone of a popular food ordering application (like Zomato), demonstrating proficiency in state management, complex routing, and secure payment gateway integration.",
-            tags: ["React", "Redux Toolkit", "Node.js", "Express", "MongoDB"],
+            tags: ["React", "Authentication" , "Firebase", "Tailwind CSS"],
             path: "/projects/tomato-app", 
             image: TomatoImg, // Replace with your actual project image path
             sourceLink: "https://github.com/Uzrakhan/Tomato-food-app",
