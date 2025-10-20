@@ -7,8 +7,8 @@ import { motion } from 'framer-motion';
 const PORTFOLIO_DATA = { 
     hero: { 
         name: "UZRA KHAN", 
-        specialty: "FULL-STACK DEVELOPER", 
-        summary: "Aspiring Fullstack Developer focused on creating scalable, performant web applications using React, Next.js, and Node.js.",
+        specialty: "Frontend Engineer with FullStack Expertise", 
+        summary: "Dedicated Frontend Engineer with a passion for building highly performant, responsive, and accessible user interfaces. Expert in the React ecosystem and leveraging Fullstack knowledge to drive efficient collaboration and scalable application architecture.",
         email: "uzrakhan539@gmail.com" 
     } 
 }; 

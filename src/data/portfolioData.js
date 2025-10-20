@@ -3,15 +3,14 @@ import IdeaboardImg from '../assets/IdeaBoardThumbnail.png';
 import TomatoImg from '../assets/TomatoThumbnail.png';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
-
 export const PORTFOLIO_DATA = {
     // ----------------------------------------------------
     // 1. HERO SECTION DATA
     // ----------------------------------------------------
     hero: {
         name: "Uzra Khan",
-        specialty: "Fullstack Developer",
-        summary: "Aspiring Fullstack Developer focused on creating scalable, performant web applications using React, Next.js, and Node.js.",
+        specialty: "Frontend Engineer with FullStack Expertise",
+        summary: "Dedicated Frontend Engineer with a passion for building highly performant, responsive, and accessible user interfaces. Expert in the React ecosystem (including Next.js) and leveraging Fullstack knowledge to drive efficient collaboration and scalable application architecture.",
         email: "uzrakhan539@gmail.com"
     },
     // ----------------------------------------------------
@@ -84,7 +83,7 @@ export const PORTFOLIO_DATA = {
             image: IdeaboardImg, // Replace with your actual project image path
             sourceLink: "https://github.com/Uzrakhan/IdeaBoard",
             liveLink: "https://idea-board-virid.vercel.app/",
-            videoUrl: "yourvideourl",
+            videoUrl: '/IdeaboardDemo.mp4',
             description: "This project addresses the challenge of remote collaboration by providing a real-time, shared digital space for users to brainstorm and draw simultaneously.",
             approach: "Initially, I explored different real-time communication protocols and settled on <strong>WebSockets</strong> for their low-latency, bidirectional capabilities essential for instant drawing updates. For managing user interactions and drawing states, a robust frontend architecture was critical, leading me to use React. The backend was designed with <strong>Node.js</strong> and <strong>Express</strong> to handle concurrent WebSocket connections and manage drawing data persistence efficiently. I prioritized scalability for concurrent users and implemented automated backend tests to ensure reliability of critical API endpoints.",
             techStack: ["TypeScript", "React", "Tailwind CSS", "Socket.io", "Node.js", "Express", "MongoDB"],

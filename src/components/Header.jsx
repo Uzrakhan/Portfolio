@@ -11,7 +11,6 @@ import UzraLogo from '../assets/Logo.png';
 gsap.registerPlugin(ScrollToPlugin);
 
 
-// --- FRAMER MOTION VARIANTS ---
 
 const menuVariants = {
     closed: {
@@ -53,14 +52,13 @@ const itemVariants = {
     },
 }
 
-// --- HEADER COMPONENT ---
 
 const Header = () => {
     const { navLinks } = PORTFOLIO_DATA;
-    const [isOpen, setIsOpen] = useState(false); // 👈 Correctly using state
+    const [isOpen, setIsOpen] = useState(false);
 
     const scrollToSection = (id) => {
-        const targetElement = document.getElementById(id.replace('#', '')); // Remove '#' for document.getElementById
+        const targetElement = document.getElementById(id.replace('#', '')); 
         
         // ⭐ Close the mobile menu when a section is clicked ⭐
         if (isOpen) {
