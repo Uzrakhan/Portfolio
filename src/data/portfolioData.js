@@ -2,7 +2,7 @@
 import IdeaboardImg from '../assets/IdeaBoardThumbnail.png';
 import TomatoImg from '../assets/TomatoThumbnail.png';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
-import IdeaboardDemo from '../assets/IdeaboardDemo.mp4';
+import IdeaboardDemo from '../assets/IdeaBoardDemo.mp4';
 
 export const PORTFOLIO_DATA = {
     // ----------------------------------------------------

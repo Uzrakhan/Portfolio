@@ -175,7 +175,7 @@ const Hero = () => {
                     </p>
                 </div>
 
-                {/* SUMMARY - Must be wrapped for the "from below" effect */}
+                
                 <div ref={summaryWrapRef} className="overflow-hidden mb-16">
                     <p 
                         className="text-sm font-normal text-neutral md:text-lg max-w-2xl"
