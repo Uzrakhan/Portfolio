@@ -120,7 +120,7 @@ const Header = () => {
                         ))}
                         <li>
                             <a 
-                                href="https://drive.google.com/file/d/1FFaohT41o30Xisk_o4hgNf_0FUcbwpWz/view?usp=sharing" 
+                                href="https://drive.google.com/file/d/1G2byO61ITOsjonSUAXXIO6Dc6vaAtfe2/view?usp=sharing" 
                                 target="_blank" 
                                 rel="noopener noreferrer"
                                 className="relative text-neutral hover:text-white font-medium transition-colors duration-200"
@@ -169,7 +169,7 @@ const Header = () => {
                         </motion.a>
                     ))}
                     <motion.a 
-                        href="https://drive.google.com/file/d/1FFaohT41o30Xisk_o4hgNf_0FUcbwpWz/view?usp=sharing"
+                        href="https://drive.google.com/file/d/1G2byO61ITOsjonSUAXXIO6Dc6vaAtfe2/view?usp=sharing"
                         target="_blank"
                         rel="noopener noreferrer"
                         variants={itemVariants} 
