@@ -1,16 +1,94 @@
-# React + Vite
+# Uzra Khan — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, interactive developer portfolio built to showcase my work, skills, and approach to building performant, visually engaging web experiences.
 
-Currently, two official plugins are available:
+This portfolio focuses on **clean UI, smooth motion, and thoughtful user interaction**, combining frontend engineering with subtle 3D elements.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Smooth scroll-based animations using **GSAP**
 
-## Expanding the ESLint configuration
+- Interactive 3D hero section built with **React Three Fiber**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Modern UI animations powered by **Framer Motion**
+
+- Fully responsive layout (desktop & mobile)
+
+- Clean project showcase with hover micro-interactions
+
+- Accessible and performant design approach
+
+---
+
+## 🧠 Tech Stack
+
+- **React** (Vite)
+
+- **Tailwind CSS** — utility-first styling
+
+- **GSAP** — scroll & entrance animations
+
+- **Framer Motion** — UI micro-interactions
+
+- **Three.js / React Three Fiber** — 3D elements
+
+- **Lucide Icons**
+
+- **React Router**
+
+---
+
+## 🖼️ Sections Included
+
+- Hero (3D interactive Rubik’s Cube)
+
+- Projects (featured work with animations)
+
+- About (background & tech focus)
+
+- Footer (contact & navigation)
+
+---
+
+## 🚀 Live Demo
+
+👉 **[View Live Portfolio](https://portfolio-nq72.vercel.app/)**  
+
+
+---
+
+## 🛠️ Getting Started Locally
+
+Clone the repository and install dependencies:
+
+```bash
+
+git clone https://github.com/Uzrakhan/Portfolio
+
+cd Portfolio
+
+npm install
+
+Run the development server:
+npm run dev
+
+-------------
+
+📬 Contact
+
+If you'd like to collaborate, discuss a project, or just say hi:
+
+📧 Email: uzrakhan539@gmail.com
+
+💼 LinkedIn: (https://www.linkedin.com/in/uzra-khan-40b472272/)
+
+🧑‍💻 GitHub: (https://github.com/Uzrakhan)
+
+-----------
+
+📝 License
+
+This project is open for inspiration and learning.
+Feel free to explore the code, but please do not copy the design directly for commercial use.
