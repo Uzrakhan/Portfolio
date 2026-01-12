@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import ParticlesBackground from './ParticlesBackground';
+import RubiksHero3D from './RubiksHero3D';
 import { motion } from 'framer-motion';
 
 const PORTFOLIO_DATA = { 
@@ -133,19 +134,34 @@ const Hero = () => {
     
 
     return (
-        <section id="page1" className="min-h-screen relative w-full px-6 pt-52 md:pt-48"> 
+        <section id="page1" className="min-h-screen relative w-full px-6 pt-56 md:pt-56"> 
             
-            <div className='absolute top-0 left-0 w-full h-full z-0 pointer-events-none'>
-                <ParticlesBackground />
+            {/* ⭐ LAYER 1: PARTICLES (very back) ⭐ */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+            <ParticlesBackground />
             </div>
 
-            {/* ⭐ LAYER 2: UI CONTENT (Z-INDEX 10) ⭐ */}
-            <div className='relative z-10'>
+            {/* ⭐ LAYER 2: 3D RUBIKS CUBE ⭐ */}
+            <div className="absolute right-0 top-1/3 -translate-y-1/2 w-[50%] h-[60%] z-[5] pointer-events-none">
+                
+                <div
+                    className="
+                    absolute inset-0 
+                    bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12),rgba(255,255,255,0)_65%)]
+                    blur-2xl
+                    "
+                />
+                <RubiksHero3D />
+            </div>
+
+
+            {/* ⭐ LAYER 3: UI CONTENT (Z-INDEX 10) ⭐ */}
+            <div className='relative z-10 mt-12 md:mt-20'>
                 {/* NAME - Must be wrapped for the "from below" effect */}
                 <div ref={nameWrapRef} className="overflow-hidden mb-4 md:mb-6">
                     <h1
-                        className="font-serif text-white uppercase font-black text-5xl tracking-tighter
-                        md:text-9xl
+                        className="font-serif text-white uppercase font-black text-5xl tracking-tight
+                        md:text-[6.5rem]
                         "
                         style={{ fontFamily: "'Dancing Script', cursive", display: 'block' }}
                     >
@@ -156,7 +172,7 @@ const Hero = () => {
                 {/* SPECIALTY - Must be wrapped for the "from below" effect */}
                 <div ref={specialtyWrapRef} className="overflow-hidden mb-6 md:mb-8">
                     <p
-                        className="font-serif uppercase font-bold text-xl md:text-5xl cursor-pointer
+                        className="font-sans uppercase font-semibold text-xl md:text-4xl cursor-pointer
                         relative group inline-block p-2 rounded-lg transition-all duration-300"
                         style={{fontFamily: "'Bodoni Moda', serif"}} 
                         ref={hoverRef}
@@ -168,7 +184,7 @@ const Hero = () => {
                         <span 
                             ref={specialtyTextRef} 
                             // Set initial color class. GSAP will animate the change.
-                            className='inline-block relative z-10 text-blue-600' 
+                            className='inline-block relative z-10 text-neutral-300' 
                         >
                             {specialty}
                         </span>
@@ -178,31 +194,34 @@ const Hero = () => {
                 
                 <div ref={summaryWrapRef} className="overflow-hidden mb-16">
                     <p 
-                        className="text-sm font-normal text-neutral md:text-lg max-w-2xl"
+                        className="text-sm font-normal text-neutral md:text-lg leading-relaxed max-w-2xl"
                     >
                         <span ref={summaryTextRef} className='inline-block'>{summary}</span>
                     </p>
                 </div>
+                
 
                 {/* CTA Button */}
                 <motion.a
-                ref={ctaRef}
-                className="inline-block rounded-full bg-primary px-10 py-5 text-base leading-5 font-medium text-black max-w-fit duration-300"
-                href={`mailto:${email}`}
+                    ref={ctaRef}
+                    className="inline-block rounded-full bg-primary/90 px-5 py-3 backdrop-blur-sm text-base border border-primary/30 leading-5 font-medium text-black max-w-fit duration-300"
+                    href={`mailto:${email}`}
 
-                whileHover={{
-                    backgroundColor: "#E5E7EB",
-                    color: "#000000",
-                    y: -2,
-                    scale: 1.05,
-                    boxShadow: "0 10px 15px -3px rgba(255, 179, 0, 0.4), 0 4px 6px -2px rgba(255, 179, 0, 0.2)"
-                }}
-                whileTap={{ scale: 0.98, y: 0 }}
-                transition={{ type: "spring", stiffness: 700, damping: 20 }}
+                    whileHover={{
+                        backgroundColor: "#E5E7EB",
+                        color: "#000000",
+                        y: -1,
+                        scale: 1.03,
+                        boxShadow: "0 10px 15px -3px rgba(255, 179, 0, 0.4), 0 4px 6px -2px rgba(255, 179, 0, 0.2)"
+                    }}
+                    whileTap={{ scale: 0.98, y: 0 }}
+                    transition={{ type: "spring", stiffness: 700, damping: 20 }}
                 >
                     Get In Touch
                 </motion.a>
             </div>
+
+
         </section>
     );
 };

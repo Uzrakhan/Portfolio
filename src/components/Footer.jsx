@@ -3,6 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { Github, Linkedin, Twitter, Mail, Coffee, Code2, Terminal } from 'lucide-react';
 import { motion } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+
+gsap.registerPlugin(ScrollToPlugin);
+
 
 
 const Footer = () => {
@@ -19,6 +24,21 @@ const Footer = () => {
     },[]);
 
     const techStack = ['React', 'Node.js', 'TypeScript', 'MongoDB'];
+
+    const scrollToSection = (id) => {
+        const targetElement = document.getElementById(id);
+        if (!targetElement) return;
+
+        gsap.to(window, {
+            duration: 1,
+            scrollTo: {
+            y: targetElement,
+            offset: 60, // same header offset
+            },
+            ease: 'power2.inOut',
+        });
+    };
+
 
     return (
         <div className='min-h-screen flex items-end'>
@@ -98,38 +118,40 @@ const Footer = () => {
                                 </h3>
                                 <ul className='space-y-3'>
                                     <li>
-                                        <motion.a 
-                                            href="#projects"
+                                        <motion.button 
+                                            type="button"
+                                            onClick={() => scrollToSection('projects')}
                                             className="text-gray-400 hover:text-blue-500 transition-colors duration-200 text-base flex items-center gap-2 group"
-                                            whileHover={{ scale: 1.3 }}
-                                            whileTap={{ scale: 0.9 }} // Shrinks on tap
-                                            transition={{ type: "spring", stiffness: 500, damping: 20 }}
-
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            transition={{ type: 'spring', stiffness: 400, damping: 20 }}
                                             >
                                             <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
                                             Projects
-                                        </motion.a>
+                                        </motion.button>
                                     </li>
                                     <li>
                                         <motion.a 
-                                            href="#about"
+                                            type="button"
+                                            onClick={() => scrollToSection('about')}
                                             className="text-gray-400 hover:text-blue-500 transition-colors duration-200 text-base flex items-center gap-2 group"
-                                            whileHover={{ scale: 1.3 }}
-                                            whileTap={{ scale: 0.9 }} // Shrinks on tap
-                                            transition={{ type: "spring", stiffness: 500, damping: 20 }}
-                                            >
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                                        >
                                             <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
                                             About
                                         </motion.a>
                                     </li>
                                     <li>
                                         <motion.a 
-                                            href="#contact"
+                                            type="button"
+                                            onClick={() => scrollToSection('contact')}
                                             className="text-gray-400 hover:text-blue-500 transition-colors duration-200 text-base flex items-center gap-2 group"
-                                            whileHover={{ scale: 1.3 }}
-                                            whileTap={{ scale: 0.9 }} // Shrinks on tap
-                                            transition={{ type: "spring", stiffness: 500, damping: 20 }}
-                                            >
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                                        >
                                             <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
                                             Contact
                                         </motion.a>

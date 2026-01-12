@@ -60,21 +60,38 @@ const About = () => {
             id="about" 
             className="relative max-w-7xl mx-auto px-6 py-20 md:py-32"
         >
-            <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-16 text-center">About Me</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 text-center">
+                About Me
+            </h2>
+
+            <p className="text-gray-400 text-center max-w-2xl mx-auto mb-20">
+                A brief look at my background, mindset, and the way I approach building web experiences.
+            </p>
 
             {/* ⭐ SINGLE COLUMN LAYOUT: Removed grid and column spans ⭐ */}
-            <div ref={textRef} className="max-w-4xl mx-auto space-y-6">
+            <div ref={textRef} className="max-w-3xl mx-auto space-y-10">
                 
                 {/* Main About Text */}
                 <p 
-                    className="text-l md:text-xl leading-relaxed text-neutral border-l-4 border-primary pl-6 py-2" // Added professional styling
+                    className="text-base md:text-xl leading-relaxed md:leading-loose text-neutral-200 border-l-4 border-primary pl-6 py-3 max-w-3xl" // Added professional styling
                     dangerouslySetInnerHTML={{ __html: description }}
                 />
 
                 {/* Additional Text / MERN Stack Philosophy */}
-                <p className="text-l md:text-xl text-white pt-4">
-                    <strong className="text-primary font-bold">Technology Focus:</strong> I leverage the MERN stack (MongoDB, Express, React, Node.js) for a unified JavaScript environment, integrating TypeScript for type safety and Tailwind CSS for rapid, utility-first styling.
-                </p>
+                <div className="pt-8">
+                    <p className="text-sm uppercase tracking-wider text-gray-400 mb-2">
+                        Technology Focus
+                    </p>
+
+                    <p className="text-base md:text-lg text-white leading-relaxed max-w-3xl">
+                        I leverage the <span className="text-primary font-medium"> MERN stack </span> 
+                        (MongoDB, Express, React, Node.js) for a unified JavaScript environment, 
+                        integrating <span className="text-primary font-medium"> TypeScript </span> 
+                        for type safety and <span className="text-primary font-medium"> Tailwind CSS </span> 
+                        for rapid, utility-first styling.
+                    </p>
+                </div>
+
                 
             </div>
             {/* REMOVED: Profile Image JSX */}

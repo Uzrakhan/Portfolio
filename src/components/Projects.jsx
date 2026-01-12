@@ -18,7 +18,16 @@ const ProjectItem = React.forwardRef(({ project, index }, ref) => {
     const imageOrder = isImageLeft ? 'lg:order-first' : 'lg:order-last';
 
     // Style for external links
-    const LinkStyle = "flex items-center text-primary hover:text-white transition-colors duration-300 font-medium text-lg";
+    const LinkStyle = `
+        relative flex items-center gap-1 
+        text-primary font-medium text-lg
+        transition-all duration-300
+        after:absolute after:-bottom-1 after:left-0
+        after:h-[2px] after:w-0 after:bg-primary
+        after:transition-all after:duration-300
+        hover:after:w-full
+    `;
+
 
     return (
         // ⭐ Use the forwarded ref here ⭐
@@ -26,20 +35,38 @@ const ProjectItem = React.forwardRef(({ project, index }, ref) => {
             ref={ref} 
             href={project.path}
             // ⭐ Add a common class for GSAP targeting ⭐
-            className="project-card grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-24 lg:mb-40 border-b border-gray-800 pb-20 lg:pb-32 group cursor-pointer transition-colors duration-300"
+            className="project-card grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-24 lg:mb-40 
+                    p-8 lg:p-12 
+                    rounded-2xl
+                    bg-white/5 
+                    backdrop-blur-sm
+                    border border-white/10
+                    group cursor-pointer 
+                    transition-all duration-300
+                "
             
             whileHover={{
                 y: -5,
-                boxShadow: "0 10px 20px rgba(0, 0, 0, 0.4)",
-                backgroundColor: "rgba(17, 24, 39, 0.5)",
+                boxShadow: "0 20px 40px rgba(0, 0, 0, 0.35)",
+                backgroundColor: "rgba(255,255,255,0.08)",
             }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
         >
             {/* Project Details (Text) */}
-            <div className={`space-y-6 ${textOrder}`}>
-                <h3 className="text-2xl md:text-3xl font-extrabold text-primary mb-2">
+            <div className={`space-y-6 ${textOrder} transition-transform duration-500 ease-out
+                group-hover:-translate-y-1`}
+            >
+                <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-2">
                     {project.title}
                 </h3>
+                <span
+                    className="
+                    block h-[2px] w-0 bg-primary mt-2
+                    transition-all duration-500 ease-out
+                    group-hover:w-full
+                    "
+                />
+
                 <p className="text-lg text-gray-300">
                     {project.summary}
                 </p>
@@ -48,7 +75,7 @@ const ProjectItem = React.forwardRef(({ project, index }, ref) => {
                     {project.techStack.slice(0, 5).map((tech, i) => (
                         <span 
                             key={i} 
-                            className="text-sm font-medium px-3 py-1 rounded-full bg-gray-700 text-gray-200 border border-primary/50 transition-colors duration-300 group-hover:bg-primary group-hover:text-black"
+                            className="text-sm font-medium px-3 py-1 rounded-full bg-white/10 text-gray-300 border border-white/10 transition-colors duration-300 group-hover:bg-white/20"
                         >
                             {tech}
                         </span>
@@ -64,7 +91,7 @@ const ProjectItem = React.forwardRef(({ project, index }, ref) => {
                                 e.stopPropagation();
                                 window.open(project.sourceLink, '_blank')
                             }}
-                            className={`${LinkStyle} cursor-pointer`}
+                            className={`${LinkStyle} cursor-pointer transition-transform duration-300 group-hover:translate-x-1`}
                         >
                             Source ↗
                         </span>
@@ -85,11 +112,11 @@ const ProjectItem = React.forwardRef(({ project, index }, ref) => {
             </div>
 
             {/* Project Image */}
-            <div className={`${imageOrder} shadow-2xl rounded-xl overflow-hidden`}>
+            <div className={`${imageOrder} rounded-2xl overflow-hidden ring-1 ring-white/10`}>
                 <img 
                     src={project.image} 
                     alt={`Screenshot of ${project.title}`}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
             </div>
         </motion.a>
@@ -135,9 +162,13 @@ const Projects = () => {
 
     return (
         <section ref={sectionRef} id="projects" className="relative max-w-7xl mx-auto px-6 py-20 md:py-32" data-scroll-section>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-16 text-center">
-                Featured Projects
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 text-center">
+                Selected Work
             </h2>
+            <p className="text-gray-400 text-center max-w-xl mx-auto mb-20">
+                A few projects where I focused on performance, UI clarity, and real-world problem solving.
+            </p>
+
 
             <div ref={containerRef}>
                 {projects.map((project, index) => (
