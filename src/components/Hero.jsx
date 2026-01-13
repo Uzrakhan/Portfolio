@@ -142,12 +142,22 @@ const Hero = () => {
             </div>
 
             {/* ⭐ LAYER 2: 3D RUBIKS CUBE ⭐ */}
-            <div className="absolute right-0 top-1/3 -translate-y-1/2 w-[50%] h-[60%] z-[5] pointer-events-none">
+            <div className="absolute right-0 top-[30%] md:top-1/3 -translate-y-1/2 w-[80%] md:w-[50%] h-[40%] md:h-[60%] opacity-60 md:opacity-100 z-[5] pointer-events-none">
                 
                 <div
                     className="
                     absolute inset-0 
-                    bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12),rgba(255,255,255,0)_65%)]
+                    bg-[radial-gradient(circle_at_center,rgba(255,179,0,0.35),rgba(255,179,0,0.15)_50%,transparent_70%)]
+                    blur-3xl
+                    animate-pulse
+                    "
+                    style={{ animationDuration: '3s' }}
+                />
+
+                <div
+                    className="
+                    absolute inset-0 
+                    bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.25),transparent_60%)]
                     blur-2xl
                     "
                 />
@@ -156,12 +166,12 @@ const Hero = () => {
 
 
             {/* ⭐ LAYER 3: UI CONTENT (Z-INDEX 10) ⭐ */}
-            <div className='relative z-10 mt-12 md:mt-20'>
+            <div className='relative z-10 mt-28 md:mt-12'>
                 {/* NAME - Must be wrapped for the "from below" effect */}
                 <div ref={nameWrapRef} className="overflow-hidden mb-4 md:mb-6">
                     <h1
-                        className="font-serif text-white uppercase font-black text-5xl tracking-tight
-                        md:text-[6.5rem]
+                        className="font-serif text-white uppercase font-black text-4xl tracking-tight
+                            md:text-7xl
                         "
                         style={{ fontFamily: "'Dancing Script', cursive", display: 'block' }}
                     >
@@ -172,8 +182,8 @@ const Hero = () => {
                 {/* SPECIALTY - Must be wrapped for the "from below" effect */}
                 <div ref={specialtyWrapRef} className="overflow-hidden mb-6 md:mb-8">
                     <p
-                        className="font-sans uppercase font-semibold text-xl md:text-4xl cursor-pointer
-                        relative group inline-block p-2 rounded-lg transition-all duration-300"
+                        className="font-sans uppercase font-semibold text-lg md:text-4xl cursor-pointer
+                        relative group inline-block rounded-lg transition-all duration-300"
                         style={{fontFamily: "'Bodoni Moda', serif"}} 
                         ref={hoverRef}
                     >

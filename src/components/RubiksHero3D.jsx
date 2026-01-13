@@ -106,6 +106,7 @@ export default function RubiksHero3D() {
         intensity={0.9}
         color="#9ca3af"
       />
+      <directionalLight position={[0, 0, 10]} intensity={0.6} color="0xffffff" />
 
         <spotLight
           position={[4, 6, 4]}
