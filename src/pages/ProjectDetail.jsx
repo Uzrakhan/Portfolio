@@ -242,7 +242,7 @@ const ProjectDetail = () => {
 
                 {/* 6. VIDEO DEMO & TESTIMONIALS */}
                 <div className="pt-10">
-                    <h2 className="text-3xl font-bold text-white mb-6">Video Demo & Feedback (Mandatory)</h2>
+                    <h2 className="text-3xl font-bold text-white mb-6">Video Demo</h2>
                     
                     {/* Video Embed (Now using the updated component) */}
                     <VideoEmbed url={videoUrl} />

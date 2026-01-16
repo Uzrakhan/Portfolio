@@ -35,8 +35,8 @@ const ProjectItem = React.forwardRef(({ project, index }, ref) => {
             ref={ref} 
             href={project.path}
             // ⭐ Add a common class for GSAP targeting ⭐
-            className="project-card grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-24 lg:mb-40 
-                    p-8 lg:p-12 
+            className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-24 lg:mb-40 
+                    p-8 lg:p-10 
                     rounded-2xl
                     bg-white/5 
                     backdrop-blur-sm
