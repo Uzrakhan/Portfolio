@@ -10,7 +10,7 @@ export const PORTFOLIO_DATA = {
     hero: {
         name: "Uzra Khan",
         specialty: "Frontend Engineer with FullStack Expertise",
-        summary: "Dedicated Frontend Engineer with a passion for building highly performant, responsive, and accessible user interfaces. Expert in the React ecosystem (including Next.js) and leveraging Fullstack knowledge to drive efficient collaboration and scalable application architecture.",
+        summary: "Dedicated Frontend Engineer with a passion for building highly performant, responsive, and accessible user interfaces. Expert in the React ecosystem and leveraging Fullstack knowledge to drive efficient collaboration and scalable application architecture.",
         email: "uzrakhan539@gmail.com"
     },
     // ----------------------------------------------------
@@ -29,7 +29,7 @@ export const PORTFOLIO_DATA = {
     about: {
         // Use HTML structure here as this will be rendered directly
         description: `
-          Hi, I’m Uzra Khan, a passionate and dedicated self-taught Fullstack Developer. I recently focused my learning on the modern web development stack, including <strong>React/Next.js for the frontend</strong> and <strong>Node.js/Express for the backend</strong>.
+          Hi, I’m Uzra Khan, a passionate and dedicated self-taught Fullstack Developer. I recently focused my learning on the modern web development stack, including <strong>React for the frontend</strong> and <strong>Node.js/Express for the backend</strong>.
           <br/><br/>
           Although I don't have formal, paid work experience, I have channeled all my effort into building <strong>real-world, hands-on projects</strong> that demonstrate my ability to design, develop, and deploy fullstack applications.
         `,
@@ -77,7 +77,7 @@ export const PORTFOLIO_DATA = {
     projects: [
         {
             title: "IdeaBoard: Real-Time Whiteboard",
-            summary: "A highly scalable, collaborative whiteboard platform built with WebSockets, Next.js, and MongoDB. Features real-time drawing, selective sharing, and persistent session storage.",
+            summary: "A highly scalable, collaborative whiteboard platform built with React.js, TypeScript, WebSockets.js and MongoDB. Features real-time drawing, selective sharing, and persistent session storage.",
             tags: ["MERN Stack", "WebSockets", "Next.js", "TypeScript", "Tailwind CSS"],
             path: "/projects/ideaboard", 
             image: IdeaboardImg, // Replace with your actual project image path
