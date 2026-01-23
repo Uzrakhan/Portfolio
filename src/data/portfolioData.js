@@ -2,7 +2,6 @@
 import IdeaboardImg from '../assets/IdeaBoardThumbnail.png';
 import TomatoImg from '../assets/TomatoThumbnail.png';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
-import IdeaboardDemo from '../assets/IdeaBoardDemo.mp4';
 
 export const PORTFOLIO_DATA = {
     // ----------------------------------------------------
@@ -111,7 +110,7 @@ export const PORTFOLIO_DATA = {
             image: TomatoImg, // Replace with your actual project image path
             sourceLink: "https://github.com/Uzrakhan/Tomato-food-app",
             liveLink: "https://tomato-food-app-two.vercel.app/",
-            videoUrl: "myvideo",
+            videoUrl: "https://github.com/Uzrakhan/Portfolio/raw/refs/heads/main/src/assets/TomatoDemo.mp4",
             description: "This application replicates a food ordering platform, simplifying the process of discovering restaurants and authenticating users for a personalized dining experience.",
             approach: "The primary challenge was implementing a secure and efficient authentication system, which was solved by leveraging Firebase Authentication to quickly integrate email/password and Google sign-in. I focused on ensuring robust session management and protecting user-specific routes. For data presentation, dynamic filtering of restaurants was key to enhancing user experience, allowing for quick discovery based on various criteria.",
             techStack: ["React", "Tailwind CSS", "Firebase"],
