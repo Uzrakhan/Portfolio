@@ -103,26 +103,29 @@ export const PORTFOLIO_DATA = {
             ]
         },
         {
-            title: "Tomato Food App Clone",
-            summary: "A functional clone of a popular food ordering application (like Zomato), demonstrating proficiency in state management, complex routing, and secure payment gateway integration.",
-            tags: ["React", "Authentication" , "Firebase", "Tailwind CSS"],
+            title: "Tomato: Full-Stack Food Delivery App",
+            summary: "A comprehensive MERN stack food ordering platform featuring a custom-built API, secure authentication, and real-time data management. Built to handle complex relational data between users, restaurants, and orders.",
+            tags: ["MERN Stack", "Node.js", "MongoDB", "Express", "React", "Firebase", "Tailwind CSS", "Material UI"],
             path: "/projects/tomato-app", 
             image: TomatoImg, // Replace with your actual project image path
             sourceLink: "https://github.com/Uzrakhan/Tomato-food-app",
             liveLink: "https://tomato-food-app-two.vercel.app/",
             videoUrl: "https://github.com/Uzrakhan/Portfolio/raw/refs/heads/main/src/assets/TomatoDemo.mp4",
-            description: "This application replicates a food ordering platform, simplifying the process of discovering restaurants and authenticating users for a personalized dining experience.",
-            approach: "The primary challenge was implementing a secure and efficient authentication system, which was solved by leveraging Firebase Authentication to quickly integrate email/password and Google sign-in. I focused on ensuring robust session management and protecting user-specific routes. For data presentation, dynamic filtering of restaurants was key to enhancing user experience, allowing for quick discovery based on various criteria.",
-            techStack: ["React", "Tailwind CSS", "Firebase"],
+            description: "This project evolved from a frontend clone into a full-stack application. It addresses the complexity of managing a digital menu ecosystem, handling secure user data, and providing a scalable backend architecture for food delivery services.",
+            approach: "I transitioned the app to a custom backend to gain full control over the data layer. Using <strong>Node.js and Express</strong>, I designed RESTful APIs to manage restaurant data and user profiles. I integrated <strong>MongoDB</strong> for its flexible schema, allowing for complex nested data like menu categories and food items. The backend is deployed on <strong>Render</strong>, while the frontend remains on Vercel, demonstrating my ability to manage cross-origin resource sharing (CORS) and environment-specific configurations.",
+            techStack: ["Node.js", "Express", "MongoDB", "React", "Tailwind CSS", "Firebase Auth", "Material UI"],
             techDecisions: {
-                "React": "Chosen for its efficiency in building dynamic user interfaces, particularly for rendering lists of restaurants and managing complex UI states related to filtering and authentication flows. Its component reusability sped up development.",
-                "Firebase": "Selected as the backend-as-a-service (BaaS) for its rapid authentication capabilities and real-time database (Firestore), which simplified user management and data storage, significantly reducing custom backend setup time. ",
-                "Tailwind CSS": "Used for its utility-first approach to quickly style responsive components like restaurant cards and navigation, ensuring a consistent and adaptive design across devices without writing much custom CSS."
+                "Node.js & Express": "Chosen to build a scalable and performant REST API. Express allowed for clean middleware implementation for request validation and error handling.",
+                "MongoDB": "Selected for its document-oriented structure, which perfectly matches the hierarchical nature of food menus (Categories > Dishes > Ingredients).",
+                "Firebase Auth": "Retained for secure, production-grade identity management, integrated seamlessly with the custom Node.js backend using the Firebase Admin SDK.",
+                "Render": "Used for backend deployment due to its excellent support for Node.js services and automatic continuous deployment from GitHub.",
+                "Material UI": "Used for the loading skeleton incase the data from API takes time to load on frontend."
             },
             outcome: [
-                "Successfully implemented a robust Firebase Authentication system, reducing authentication development time by an estimated 30%.",
-                "Gained hands-on experience with secure route protection and user session persistence.",
-                "Developed dynamic data filtering capabilities, significantly improving the user's ability to navigate and find desired content efficiently. ",
+                "Architected and deployed a full-stack MERN application with a decoupled frontend and backend.",
+                "Developed custom REST API endpoints to handle dynamic data fetching, reducing frontend data processing logic.",
+                "Mastered the integration of third-party authentication services with custom backend databases.",
+                "Optimized backend performance and successfully managed deployment configurations on Render."
             ]
         },
     ],
