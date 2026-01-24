@@ -158,7 +158,7 @@ const Footer = () => {
                                     </li>
                                     <li>
                                         <motion.a 
-                                            href="https://drive.google.com/file/d/1G2byO61ITOsjonSUAXXIO6Dc6vaAtfe2/view?usp=sharing"
+                                            href="https://drive.google.com/file/d/1d34tl6Wk1HTPNQF4dw7uBdkPgjShouLR/view?usp=sharing"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="text-gray-400 hover:text-blue-500 transition-colors duration-200 text-base flex items-center gap-2 group"
@@ -167,7 +167,7 @@ const Footer = () => {
                                             transition={{ type: "spring", stiffness: 500, damping: 20 }}
                                             >
                                             <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
-                                            Resume
+                                                Resume
                                             <span className="text-xs text-gray-600 group-hover:text-blue-500/70">↗</span>
                                         </motion.a>
                                     </li>

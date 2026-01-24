@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import ParticlesBackground from './ParticlesBackground';
 import RubiksHero3D from './RubiksHero3D';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 
 const PORTFOLIO_DATA = { 
     hero: { 
@@ -131,6 +132,30 @@ const Hero = () => {
 
         }, nameWrapRef) 
     }, []);
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        // These parameters should match your EmailJS template variables
+        const templateParams = {
+            from_name: 'Portfolio Visitor',
+            from_email: 'visitor@example.com', // You'd usually get this from a form input
+            message: 'Someone clicked your Get In Touch button!',
+        };
+
+        emailjs.send(
+            'YOUR_SERVICE_ID', 
+            'YOUR_TEMPLATE_ID', 
+            templateParams, 
+            'YOUR_PUBLIC_KEY'
+        )
+        .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        alert("Message Sent! I'll get back to you soon.");
+        }, (err) => {
+        console.log('FAILED...', err);
+        });
+    };
     
 
     return (
@@ -161,7 +186,9 @@ const Hero = () => {
                     blur-2xl
                     "
                 />
-                <RubiksHero3D />
+                <div className="w-full h-full pointer-events-auto">
+                    <RubiksHero3D />
+                </div>
             </div>
 
 
@@ -181,7 +208,7 @@ const Hero = () => {
 
                 {/* SPECIALTY - Must be wrapped for the "from below" effect */}
                 <div ref={specialtyWrapRef} className="overflow-hidden mb-6 md:mb-8">
-                    <p
+                    <div
                         className="font-sans uppercase font-semibold text-lg md:text-4xl cursor-pointer
                         relative group inline-block rounded-lg transition-all duration-300"
                         style={{fontFamily: "'Bodoni Moda', serif"}} 
@@ -198,7 +225,7 @@ const Hero = () => {
                         >
                             {specialty}
                         </span>
-                    </p>
+                    </div>
                 </div>
 
                 
@@ -214,17 +241,15 @@ const Hero = () => {
                 {/* CTA Button */}
                 <motion.a
                     ref={ctaRef}
-                    className="inline-block rounded-full bg-primary/90 px-5 py-3 backdrop-blur-sm text-base border border-primary/30 leading-5 font-medium text-black max-w-fit duration-300"
-                    href={`mailto:${email}`}
-
-                    whileHover={{
-                        backgroundColor: "#E5E7EB",
-                        color: "#000000",
-                        y: -1,
-                        scale: 1.03,
-                        boxShadow: "0 10px 15px -3px rgba(255, 179, 0, 0.4), 0 4px 6px -2px rgba(255, 179, 0, 0.2)"
+                    className="relative z-50 inline-block rounded-full bg-primary/90 px-5 py-3 backdrop-blur-sm text-base border border-primary/30 leading-5 font-medium text-black max-w-fit duration-300"
+                    href={`mailto:${email}?subject=Hello%20from%20Your%20Portfolio&body=Hi%20Uzra,%0D%0A%0D%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect.`}
+                    style={{ 
+                        pointerEvents: 'auto', 
+                        cursor: 'pointer',
+                        touchAction: 'manipulation' 
                     }}
-                    whileTap={{ scale: 0.98, y: 0 }}
+
+                    
                     transition={{ type: "spring", stiffness: 700, damping: 20 }}
                 >
                     Get In Touch

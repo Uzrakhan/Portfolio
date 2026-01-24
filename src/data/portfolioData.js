@@ -77,7 +77,7 @@ export const PORTFOLIO_DATA = {
     projects: [
         {
             title: "IdeaBoard: Real-Time Whiteboard",
-            summary: "A highly scalable, collaborative whiteboard platform built with React.js, TypeScript, WebSockets.js and MongoDB. Features real-time drawing, selective sharing, and persistent session storage.",
+            summary: "A highly scalable, collaborative whiteboard platform built with React.js, TypeScript, WebSockets and MongoDB. Features real-time drawing, selective sharing, and persistent session storage.",
             tags: ["MERN Stack", "WebSockets", "Next.js", "TypeScript", "Tailwind CSS"],
             path: "/projects/ideaboard", 
             image: IdeaboardImg, // Replace with your actual project image path

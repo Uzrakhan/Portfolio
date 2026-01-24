@@ -1,136 +1,103 @@
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { useRef, useState, useMemo } from 'react'
 import * as THREE from 'three'
+import React from 'react'
+
+// Move outside to prevent recreation
+const boxGeo = new THREE.BoxGeometry(0.92, 0.92, 0.92);
 
 function Cubie({ position, shade }) {
-  const [hovered, setHovered] = useState(false)
-
-  const material = useMemo(() => {
-    return new THREE.MeshStandardMaterial({
-      color: shade,
-      roughness: 0.35,
-      metalness: 0.12,
-      emissive: hovered ? '#888888' : '#000000',
-      emissiveIntensity: hovered ? 0.35 : 0,
-    })
-  }, [shade, hovered])
+  const [hovered, setHovered] = useState(false);
 
   return (
     <mesh
       position={position}
-      material={material}
+      geometry={boxGeo} // Use variable directly
       onPointerOver={(e) => {
-        e.stopPropagation()
-        setHovered(true)
+        e.stopPropagation();
+        setHovered(true);
       }}
       onPointerOut={() => setHovered(false)}
-      castShadow
-      receiveShadow
     >
-      <boxGeometry args={[0.95, 0.95, 0.95]} />
+      <meshStandardMaterial 
+        color={hovered ? "#FFB300" : shade} 
+        roughness={0.4}
+        metalness={0.1}
+        emissive={hovered ? "#FFB300" : "#000000"}
+        emissiveIntensity={hovered ? 0.2 : 0}
+      />
     </mesh>
-  )
+  );
 }
 
 function RubiksCube() {
-  const cubes = []
-  const shades = [
-    '#0a0a0a',
-    '#141414',
-    '#1e1e1e',
-    '#282828',
-    '#323232',
-    '#3c3c3c',
-    '#464646',
-    '#505050',
-    '#5a5a5a',
-  ]
-
-  let i = 0
-
-  for (let x = -1; x <= 1; x++) {
-    for (let y = -1; y <= 1; y++) {
-      for (let z = -1; z <= 1; z++) {
-        cubes.push(
-          <Cubie
-            key={`${x}${y}${z}`}
-            position={[x, y, z]}
-            shade={shades[i % shades.length]}
-          />
-        )
-        i++
+  const cubes = useMemo(() => {
+    const temp = [];
+    const shades = ['#0a0a0a', '#141414', '#1e1e1e', '#282828', '#323232', '#3c3c3c', '#464646', '#505050', '#5a5a5a'];
+    let i = 0;
+    for (let x = -1; x <= 1; x++) {
+      for (let y = -1; y <= 1; y++) {
+        for (let z = -1; z <= 1; z++) {
+          temp.push(<Cubie key={`${x}${y}${z}`} position={[x, y, z]} shade={shades[i % shades.length]} />);
+          i++;
+        }
       }
     }
-  }
-
-  return <group>{cubes}</group>
+    return temp;
+  }, []);
+  return <group>{cubes}</group>;
 }
-
-function RubiksGroup({ children }) {
-  return (
-    <group scale={0.7} position={[0.8, 0.15, 0]}>
-      {children}
-    </group>
-  )
-}
-
-
-function GlowShell() {
-  return (
-    <mesh scale={1.02}>
-      <boxGeometry args={[3, 3, 3]} />
-      <meshStandardMaterial
-        color="#ffffff"
-        transparent
-        opacity={0.04}
-        roughness={1}
-      />
-    </mesh>
-  )
-}
-
-
 
 export default function RubiksHero3D() {
   return (
     <Canvas
       camera={{ position: [3.5, 3.5, 3.5], fov: 45 }}
-      style={{ background: 'transparent' }}
+      frameloop='demand'
+      shadows={false}
+      style={{ touchAction: 'none' }}
+      // LOWERS POWER USAGE:
+      dpr={[1, 1.5]} // Don't render at 3x resolution on high-end phones
+      gl={{ 
+        antialias: false, 
+        powerPreference: "high-performance",
+        alpha: true 
+      }}
     >
       <ambientLight intensity={0.12} />
       <directionalLight position={[6, 6, 6]} intensity={1.1} />
-      <directionalLight position={[-6, -6, -6]} intensity={0.6} />
-      <directionalLight
-        position={[-6, 2, -6]}
-        intensity={0.9}
-        color="#9ca3af"
-      />
-      <directionalLight position={[0, 0, 10]} intensity={0.6} color="0xffffff" />
-
-        <spotLight
-          position={[4, 6, 4]}
-          angle={0.3}
-          penumbra={0.9}
-          intensity={3.5}
-          color="#ffffff"
-          castShadow
-        />
-
+      
       <RubiksGroup>
-        <GlowShell />
         <RubiksCube />
       </RubiksGroup>
 
-      <OrbitControls 
-        enableZoom={false} 
-        enablePan={false} 
-        enableDamping
-        dampingFactor={0.12}
-        autoRotate            // ✅ AUTO ROTATION
-        autoRotateSpeed={0.6} // ✅ SLOW & SMOOTH
-        rotateSpeed={0.8}
-      />
+      <SceneControls />
     </Canvas>
-  )
+  );
+}
+
+// Separate component to handle OrbitControls without "querySelector"
+function SceneControls() {
+  const { gl } = useThree();
+  
+  return (
+    <OrbitControls 
+      makeDefault
+      enableZoom={false} 
+      enablePan={false} 
+      enableDamping={false} // Turning off damping saves CPU math
+      touches={{
+        ONE: THREE.TOUCH.ROTATE
+      }}      
+    />
+  );
+}
+
+function RubiksGroup({ children }) {
+  const groupRef = useRef();
+  useFrame((state) => {
+    // Only animate if the tab is visible to save CPU
+    groupRef.current.position.y = 0.15 + Math.sin(state.clock.elapsedTime) * 0.05;
+  });
+  return <group ref={groupRef} scale={0.7} position={[0.8, 0.15, 0]}>{children}</group>;
 }

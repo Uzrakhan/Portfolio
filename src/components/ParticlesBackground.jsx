@@ -49,7 +49,7 @@ const nasaOptions = {
                 type: "circle"
             },
             onHover: {
-                enable: true,
+                enable: false,
                 mode: "bubble", // Uses the 'bubble' mode for hover
                 parallax: {
                     enable: false,
@@ -305,7 +305,7 @@ const nasaOptions = {
                 mode: "delete",
                 value: 0
             },
-            value: 160
+            value: 50
         },
         opacity: {
             value: {
