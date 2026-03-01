@@ -12,6 +12,8 @@ import Philosophy from './components/Philosophy';
 import LearningLog from './components/LearningLog';
 import ProjectDetail from './pages/ProjectDetail'; 
 import Footer from './components/Footer';
+import RoomPortfolio from './components/RoomPortfolio';
+import ProjectDetails from './components/ProjectDetails';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -40,7 +42,7 @@ function App() {
 
     return (
         <>
-            <Header />
+            
             <Routes>
                 
                 {/* 1. HOME PAGE ROUTE (NATIVE SCROLL) */}
@@ -49,17 +51,20 @@ function App() {
                     element={
                         <DefaultScrollWrapper pathname={location.pathname}>
                             <main>
-                                <Hero />
-                                <Projects id="projects" />
-                                <About id="about" />
-                                <Philosophy id="philosophy" />
-                                <LearningLog id="learning-log" />
-                                <Footer />
+                                <RoomPortfolio />
                             </main>
                         </DefaultScrollWrapper>
                     }
                 />
 
+                <Route 
+                    path='/projects/:slug'
+                    element={
+                    <DefaultScrollWrapper>
+                        <ProjectDetails />
+                    </DefaultScrollWrapper>
+                    }
+                />
                 {/* 2. PROJECT DETAIL PAGE ROUTE */}
                 <Route 
                     path='/projects/:slug'

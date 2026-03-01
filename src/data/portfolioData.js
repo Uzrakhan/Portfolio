@@ -2,6 +2,7 @@
 import IdeaboardImg from '../assets/IdeaBoardThumbnail.png';
 import TomatoImg from '../assets/TomatoThumbnail.png';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import CactroResumeImg from '../assets/CactroResume.png';
 
 export const PORTFOLIO_DATA = {
     // ----------------------------------------------------
@@ -76,10 +77,12 @@ export const PORTFOLIO_DATA = {
     },
     projects: [
         {
+            id: 1,
             title: "IdeaBoard: Real-Time Whiteboard",
             summary: "A highly scalable, collaborative whiteboard platform built with React.js, TypeScript, WebSockets and MongoDB. Features real-time drawing, selective sharing, and persistent session storage.",
             tags: ["MERN Stack", "WebSockets", "Next.js", "TypeScript", "Tailwind CSS"],
-            path: "/projects/ideaboard", 
+            path: "/projects/ideaboard",
+            slug: "ideaboard", 
             image: IdeaboardImg, // Replace with your actual project image path
             sourceLink: "https://github.com/Uzrakhan/IdeaBoard",
             liveLink: "https://idea-board-virid.vercel.app/",
@@ -95,6 +98,11 @@ export const PORTFOLIO_DATA = {
                 "Node.js & Express": "Chosen for the backend due to their non-blocking I/O model, making them highly efficient for handling numerous concurrent WebSocket connections. This was ideal for a real-time application needing scalable and performant server management.",
                 "MongoDB": "Integrated as the database solution for its flexibility and scalability, particularly suited for handling the dynamic and potentially unstructured nature of drawing data and user session information, allowing for quick schema evolution."
             },
+            highlights: [
+                'Sub-15ms latency',
+                '5+ concureent users',
+                '99 Lighthouse score'
+            ],
             outcome: [
                 "Successfully delivered a fully functional MVP (Minimum Viable Product) capable of real-time drawing and synchronization.",
                 "Learned advanced concepts in WebSocket communication and state management in real-time applications.",
@@ -102,11 +110,12 @@ export const PORTFOLIO_DATA = {
                 "Enhanced skills in automated testing for API endpoints, ensuring system reliability and preventing regressions in critical features."
             ]
         },
-        {
+        {   id: 2,
             title: "Tomato: Full-Stack Food Delivery App",
             summary: "A comprehensive MERN stack food ordering platform featuring a custom-built API, secure authentication, and real-time data management. Built to handle complex relational data between users, restaurants, and orders.",
             tags: ["MERN Stack", "Node.js", "MongoDB", "Express", "React", "Firebase", "Tailwind CSS", "Material UI"],
             path: "/projects/tomato-app", 
+            slug: "tomato-app",
             image: TomatoImg, // Replace with your actual project image path
             sourceLink: "https://github.com/Uzrakhan/Tomato-food-app",
             liveLink: "https://tomato-food-app-two.vercel.app/",
@@ -121,6 +130,11 @@ export const PORTFOLIO_DATA = {
                 "Render": "Used for backend deployment due to its excellent support for Node.js services and automatic continuous deployment from GitHub.",
                 "Material UI": "Used for the loading skeleton incase the data from API takes time to load on frontend."
             },
+            highlights: [
+                "REST APIs",
+                "85ms search response",
+                "99.9% uptime"
+            ],
             outcome: [
                 "Architected and deployed a full-stack MERN application with a decoupled frontend and backend.",
                 "Developed custom REST API endpoints to handle dynamic data fetching, reducing frontend data processing logic.",
@@ -128,6 +142,50 @@ export const PORTFOLIO_DATA = {
                 "Optimized backend performance and successfully managed deployment configurations on Render."
             ]
         },
+        {
+            id: 3,
+            title: "Cactro 3D Resume",
+            summary: "An immersive 3D interactive resume experience built using React and Three.js, designed to showcase personal skills and work history in an engaging visual format.",
+            tags: ["React", "Three.js", "React Three Fiber", "3D UI", "Animation"],
+            path: "/projects/cactro-3d-resume",
+            slug: "cactro-3d-resume",
+            image: CactroResumeImg, 
+            sourceLink: "https://github.com/Uzrakhan/Cactro-3d-resume",
+            liveLink: "https://cactro-3d-resume.vercel.app/", 
+            videoUrl: "https://raw.githubusercontent.com/Uzrakhan/Portfolio/main/src/assets/CactroResume.mp4",
+            description:
+                "Cactro 3D Resume reimagines the traditional resume as a 3D interactive Rubik's Cube. Users can explore my professional story in a dynamic, immersive way — from education and skills to project highlights and personal philosophy.",
+            approach:
+                "I wanted to break away from static resume formats and build something that reflects my technical identity. Using React Three Fiber with Three.js, I constructed a 3D environment representing different sections of a resume as interactive zones. Animations were orchestrated with GSAP and camera transitions to guide the user. The challenge was balancing visuals with performance, so I optimized models and used lazy-loading for heavier assets to ensure smooth interaction across devices.",
+            techStack: [
+                "React",
+                "React Three Fiber",
+                "Three.js",
+                "GSAP",
+                "Tailwind CSS"
+            ],
+            techDecisions: {
+                "React Three Fiber":
+                "Chose R3F to write Three.js declaratively inside React, making scene management and component structure far easier than vanilla Three.js.",
+                "GSAP":
+                "Used for animation timing and smooth camera transitions because of its high performance and fine-grained control compared to CSS or native Web Animations.",
+                "Lazy Loading":
+                "Implemented lazy loading for 3D assets to improve performance on lower-powered devices and keep interaction responsive.",
+                "Tailwind CSS":
+                "Used utility classes for quick responsive UI styling outside the 3D canvas components."
+            },
+            highlights: [
+                "Interactive 3D resume interface",
+                "Smooth camera and animation transitions",
+                "Optimized for performance across devices"
+            ],
+            outcome: [
+                "Created a memorable, interactive representation of my professional story.",
+                "Gained deeper architectural and animation expertise with React Three Fiber.",
+                "Improved performance optimization strategies for immersive web graphics."
+            ]
+        }
+
     ],
         socialLinks: [
         { name: "GitHub", url: "https://github.com/Uzrakhan", icon: FaGithub }, // Use your GitHub URL
