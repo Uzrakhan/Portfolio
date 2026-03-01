@@ -157,108 +157,67 @@ const Hero = () => {
         });
     };
     
-
+    
     return (
-        <section id="page1" className="min-h-screen relative w-full px-6 pt-56 md:pt-56"> 
-            
-            {/* ⭐ LAYER 1: PARTICLES (very back) ⭐ */}
-            <div className="absolute inset-0 z-0 pointer-events-none">
+    <section id="page1" className="min-h-screen relative w-full overflow-hidden px-6 pt-10 md:pt-56 flex flex-col items-center"> 
+        
+        {/* BACKGROUND PARTICLES */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
             <ParticlesBackground />
+        </div>
+
+        {/* 1. HEADER AREA (Logo & Menu) */}
+        
+
+        {/* 2. THE CUBE (Top on Mobile / Right on Desktop) */}
+        <div className="relative md:absolute md:right-0 md:top-1/3 md:-translate-y-1/2 w-[280px] h-[280px] md:w-[50%] md:h-[60%] z-[5] mb-8 md:mb-0 flex justify-center items-center">
+            {/* Glow Background (Centering this too) */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,179,0,0.2),transparent_70%)] blur-3xl" />
+            <div className="w-full h-full pointer-events-auto">
+                <RubiksHero3D />
             </div>
+        </div>
 
-            {/* ⭐ LAYER 2: 3D RUBIKS CUBE ⭐ */}
-            <div className="absolute right-0 top-[30%] md:top-1/3 -translate-y-1/2 w-[80%] md:w-[50%] h-[40%] md:h-[60%] opacity-60 md:opacity-100 z-[5] pointer-events-none">
-                
-                <div
-                    className="
-                    absolute inset-0 
-                    bg-[radial-gradient(circle_at_center,rgba(255,179,0,0.35),rgba(255,179,0,0.15)_50%,transparent_70%)]
-                    blur-3xl
-                    animate-pulse
-                    "
-                    style={{ animationDuration: '3s' }}
-                />
-
-                <div
-                    className="
-                    absolute inset-0 
-                    bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.25),transparent_60%)]
-                    blur-2xl
-                    "
-                />
-                <div className="w-full h-full pointer-events-auto">
-                    <RubiksHero3D />
-                </div>
-            </div>
-
-
-            {/* ⭐ LAYER 3: UI CONTENT (Z-INDEX 10) ⭐ */}
-            <div className='relative z-10 mt-28 md:mt-12'>
-                {/* NAME - Must be wrapped for the "from below" effect */}
-                <div ref={nameWrapRef} className="overflow-hidden mb-4 md:mb-6">
-                    <h1
-                        className="font-serif text-white uppercase font-black text-4xl tracking-tight
-                            md:text-7xl
-                        "
-                        style={{ fontFamily: "'Dancing Script', cursive", display: 'block' }}
-                    >
-                        <span ref={nameTextRef} className='inline-block'>{name}</span>
-                    </h1>
-                </div>
-
-                {/* SPECIALTY - Must be wrapped for the "from below" effect */}
-                <div ref={specialtyWrapRef} className="overflow-hidden mb-6 md:mb-8">
-                    <div
-                        className="font-sans uppercase font-semibold text-lg md:text-4xl cursor-pointer
-                        relative group inline-block rounded-lg transition-all duration-300"
-                        style={{fontFamily: "'Bodoni Moda', serif"}} 
-                        ref={hoverRef}
-                    >
-                        <div 
-                            className="absolute inset-0 bg-primary/20 rounded-lg 
-                                       opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        ></div>
-                        <span 
-                            ref={specialtyTextRef} 
-                            // Set initial color class. GSAP will animate the change.
-                            className='inline-block relative z-10 text-neutral-300' 
-                        >
-                            {specialty}
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div ref={summaryWrapRef} className="overflow-hidden mb-16">
-                    <p 
-                        className="text-sm font-normal text-neutral md:text-lg leading-relaxed max-w-2xl"
-                    >
-                        <span ref={summaryTextRef} className='inline-block'>{summary}</span>
-                    </p>
-                </div>
-                
-
-                {/* CTA Button */}
-                <motion.a
-                    ref={ctaRef}
-                    className="relative z-50 inline-block rounded-full bg-primary/90 px-5 py-3 backdrop-blur-sm text-base border border-primary/30 leading-5 font-medium text-black max-w-fit duration-300"
-                    href={`mailto:${email}?subject=Hello%20from%20Your%20Portfolio&body=Hi%20Uzra,%0D%0A%0D%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect.`}
-                    style={{ 
-                        pointerEvents: 'auto', 
-                        cursor: 'pointer',
-                        touchAction: 'manipulation' 
-                    }}
-
-                    
-                    transition={{ type: "spring", stiffness: 700, damping: 20 }}
+        {/* 3. TEXT CONTENT AREA (Bottom on Mobile / Left on Desktop) */}
+        <div className='relative z-10 w-full pt-18 md:pt-28 flex flex-col items-start md:items-start pointer-events-none'>
+            
+            {/* NAME */}
+            <div ref={nameWrapRef} className="overflow-hidden mb-2">
+                <h1 
+                    className="font-serif text-white uppercase font-black text-5xl md:text-7xl tracking-tighter" 
+                    style={{ fontFamily: "'Dancing Script', cursive" }}
                 >
-                    Get In Touch
-                </motion.a>
+                    <span ref={nameTextRef} className='inline-block'>{name}</span>
+                </h1>
             </div>
 
+            {/* SPECIALTY */}
+            <div ref={specialtyWrapRef} className="overflow-hidden mb-6">
+                <div ref={hoverRef} className="font-sans uppercase font-bold text-2xl md:text-4xl text-blue-600">
+                    <span ref={specialtyTextRef} className='inline-block'>
+                        {specialty}
+                    </span>
+                </div>
+            </div>
 
-        </section>
-    );
+            {/* SUMMARY */}
+            <div ref={summaryWrapRef} className="overflow-hidden mb-10 md:max-w-[45%]">
+                <p className="text-sm font-light text-gray-400 md:text-lg leading-snug">
+                    <span ref={summaryTextRef} className='inline-block'>{summary}</span>
+                </p>
+            </div>
+
+            {/* CTA */}
+            <motion.a
+                ref={ctaRef}
+                className="relative z-50 inline-block rounded-full bg-primary/90 px-8 py-3 text-black font-bold"
+                href={`mailto:${email}`}
+            >
+                Get In Touch
+            </motion.a>
+        </div>
+    </section>
+);
 };
 
 export default Hero;

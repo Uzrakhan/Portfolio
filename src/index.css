@@ -14,3 +14,128 @@ body {
 #root {
     min-height: 100vh;
 }
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
+}
+
+
+/* Terminal Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d1117;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #22c55e;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #16a34a;
+}
+
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+
+@keyframes gridMove {
+  from { transform: translateY(0); }
+  to { transform: translateY(40px); }
+}
+
+.animate-gridMove {
+  animation: gridMove 2s linear infinite;
+}
+
+
+@keyframes neonFlicker {
+  0%,18%,22%,25%,53%,57%,100% {
+    opacity: 1;
+  }
+  20%,24%,55% {
+    opacity: 0.6;
+  }
+}
+
+.neon-flicker {
+  animation: neonFlicker 3s infinite;
+}
+
+.arcade-chromatic {
+  text-shadow:
+    2px 0 red,
+    -2px 0 cyan;
+}
+
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 20px #ec4899; }
+  50% { box-shadow: 0 0 40px #ec4899; }
+  100% { box-shadow: 0 0 20px #ec4899; }
+}
+
+.arcade-glow {
+  animation: glowPulse 2s infinite ease-in-out;
+}
+
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(0,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: blueprintMove 20s linear infinite;
+}
+
+@keyframes blueprintMove {
+  from { transform: translateY(0); }
+  to { transform: translateY(40px); }
+}
+
+
+/* Smoothly reveal the name from bottom to top */
+@keyframes revealUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-reveal {
+  animation: revealUp 1.2s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+/* For the grain effect mentioned earlier */
+@keyframes noise {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-1%, -1%); }
+  50% { transform: translate(-2%, -1%); }
+  100% { transform: translate(2%, -2%); }
+}
+
+.grain-overlay {
+  position: fixed;
+  top: -50%; left: -50%; width: 200%; height: 200%;
+  background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat;
+  animation: noise 0.2s infinite;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 10000;
+}
