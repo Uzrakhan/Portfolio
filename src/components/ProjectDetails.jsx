@@ -205,7 +205,6 @@ const videoWrapper = {
 const videoStyle = {
   width: "100%",
   borderRadius: "16px",
-  borderRadius: "20px"
 };
 
 const glassSection = {

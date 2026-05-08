@@ -78,118 +78,268 @@ export const PORTFOLIO_DATA = {
     projects: [
         {
             id: 1,
-            title: "IdeaBoard: Real-Time Whiteboard",
-            summary: "A highly scalable, collaborative whiteboard platform built with React.js, TypeScript, WebSockets and MongoDB. Features real-time drawing, selective sharing, and persistent session storage.",
-            tags: ["MERN Stack", "WebSockets", "Next.js", "TypeScript", "Tailwind CSS"],
-            path: "/projects/ideaboard",
-            slug: "ideaboard", 
-            image: IdeaboardImg, // Replace with your actual project image path
-            sourceLink: "https://github.com/Uzrakhan/IdeaBoard",
-            liveLink: "https://idea-board-virid.vercel.app/",
-            videoUrl: "https://media.githubusercontent.com/media/Uzrakhan/Portfolio/main/src/assets/IdeaBoardDemo.mp4",
-            description: "This project addresses the challenge of remote collaboration by providing a real-time, shared digital space for users to brainstorm and draw simultaneously.",
-            approach: "Initially, I explored different real-time communication protocols and settled on <strong>WebSockets</strong> for their low-latency, bidirectional capabilities essential for instant drawing updates. For managing user interactions and drawing states, a robust frontend architecture was critical, leading me to use React. The backend was designed with <strong>Node.js</strong> and <strong>Express</strong> to handle concurrent WebSocket connections and manage drawing data persistence efficiently. I prioritized scalability for concurrent users and implemented automated backend tests to ensure reliability of critical API endpoints.",
-            techStack: ["TypeScript", "React", "Tailwind CSS", "Socket.io", "Node.js", "Express", "MongoDB"],
-            techDecisions: {
-                "TypeScript": "Chosen for type-safety, crucial for developing complex, interactive UI components and ensuring data consistency across the real-time application. This reduced common runtime errors compared to plain JavaScript.",
-                "React": "Selected for its component-based architecture, which facilitated the creation of reusable UI elements (e.g., drawing tools, canvas) and efficient state management for a dynamic interface, offering better control over rendering performance.",
-                "Tailwind CSS": "Utilized for rapid UI development and responsive design. Its utility-first approach allowed for quick styling iterations and ensured the whiteboard adapted seamlessly across different screen sizes.",
-                "Socket.io": "Implemented specifically for real-time bidirectional communication. It provided robust features like room management and auto-reconnection, vital for enabling instant drawing updates and managing user permissions in a complex real-time environment.",
-                "Node.js & Express": "Chosen for the backend due to their non-blocking I/O model, making them highly efficient for handling numerous concurrent WebSocket connections. This was ideal for a real-time application needing scalable and performant server management.",
-                "MongoDB": "Integrated as the database solution for its flexibility and scalability, particularly suited for handling the dynamic and potentially unstructured nature of drawing data and user session information, allowing for quick schema evolution."
-            },
-            highlights: [
-                'Sub-15ms latency',
-                '5+ concureent users',
-                '99 Lighthouse score'
+            title: "IdeaBoard",
+            year: "2026",
+            category: "Real-Time Collaboration",
+
+            slug: "ideaboard",
+
+            summary:
+            "A blazing collaborative whiteboard where teams think together — sub-15ms sync, concurrent multi-user canvas, and a 99 Lighthouse score proving performance and beauty aren't trade-offs.",
+
+            description:
+            "This project addresses the challenge of remote collaboration by providing a real-time, shared digital space for users to brainstorm and draw simultaneously.",
+
+            videoUrl:
+            "https://media.githubusercontent.com/media/Uzrakhan/Portfolio/main/src/assets/IdeaBoardDemo.mp4",
+
+            image: IdeaboardImg,
+
+            tech: [
+            "TypeScript",
+            "React",
+            "Socket.io",
+            "Node.js",
+            "Express",
+            "MongoDB",
+            "Tailwind CSS"
             ],
+
+            metrics: [
+            { label: "Latency", value: "<15ms" },
+            { label: "Concurrent", value: "5+ users" },
+            { label: "Perf Score", value: "99 ⚡" }
+            ],
+
+            highlights: [
+            "Sub-15ms latency",
+            "Concurrent collaborative drawing",
+            "99 Lighthouse performance score"
+            ],
+
+            approach:
+            "Initially, I explored different real-time communication protocols and settled on WebSockets for their low-latency, bidirectional capabilities essential for instant drawing updates. The backend was designed using Node.js and Express to efficiently handle concurrent socket connections and persistent drawing states.",
+
+            techDecisions: {
+            "Socket.io":
+                "Implemented for real-time bidirectional communication and room management.",
+            "TypeScript":
+                "Used for scalable type-safe architecture and predictable frontend logic.",
+            "MongoDB":
+                "Chosen for flexibility in storing dynamic drawing session data."
+            },
+
             outcome: [
-                "Successfully delivered a fully functional MVP (Minimum Viable Product) capable of real-time drawing and synchronization.",
-                "Learned advanced concepts in WebSocket communication and state management in real-time applications.",
-                "Gained experience in architecting scalable backend services designed to handle concurrent user loads.",
-                "Enhanced skills in automated testing for API endpoints, ensuring system reliability and preventing regressions in critical features."
-            ]
+            "Built a fully functional real-time collaborative MVP.",
+            "Improved expertise in WebSocket architecture.",
+            "Learned scalable backend patterns for concurrency."
+            ],
+
+            live:
+            "https://idea-board-virid.vercel.app/",
+
+            github:
+            "https://github.com/Uzrakhan/IdeaBoard"
         },
-        {   id: 2,
-            title: "Tomato: Full-Stack Food Delivery App",
-            summary: "A comprehensive MERN stack food ordering platform featuring a custom-built API, secure authentication, and real-time data management. Built to handle complex relational data between users, restaurants, and orders.",
-            tags: ["MERN Stack", "Node.js", "MongoDB", "Express", "React", "Firebase", "Tailwind CSS", "Material UI"],
-            path: "/projects/tomato-app", 
-            slug: "tomato-app",
-            image: TomatoImg, // Replace with your actual project image path
-            sourceLink: "https://github.com/Uzrakhan/Tomato-food-app",
-            liveLink: "https://tomato-food-app-two.vercel.app/",
-            videoUrl: "https://github.com/Uzrakhan/Portfolio/raw/refs/heads/main/src/assets/TomatoDemo.mp4",
-            description: "This project evolved from a frontend clone into a full-stack application. It addresses the complexity of managing a digital menu ecosystem, handling secure user data, and providing a scalable backend architecture for food delivery services.",
-            approach: "I transitioned the app to a custom backend to gain full control over the data layer. Using <strong>Node.js and Express</strong>, I designed RESTful APIs to manage restaurant data and user profiles. I integrated <strong>MongoDB</strong> for its flexible schema, allowing for complex nested data like menu categories and food items. The backend is deployed on <strong>Render</strong>, while the frontend remains on Vercel, demonstrating my ability to manage cross-origin resource sharing (CORS) and environment-specific configurations.",
-            techStack: ["Node.js", "Express", "MongoDB", "React", "Tailwind CSS", "Firebase Auth", "Material UI"],
-            techDecisions: {
-                "Node.js & Express": "Chosen to build a scalable and performant REST API. Express allowed for clean middleware implementation for request validation and error handling.",
-                "MongoDB": "Selected for its document-oriented structure, which perfectly matches the hierarchical nature of food menus (Categories > Dishes > Ingredients).",
-                "Firebase Auth": "Retained for secure, production-grade identity management, integrated seamlessly with the custom Node.js backend using the Firebase Admin SDK.",
-                "Render": "Used for backend deployment due to its excellent support for Node.js services and automatic continuous deployment from GitHub.",
-                "Material UI": "Used for the loading skeleton incase the data from API takes time to load on frontend."
-            },
-            highlights: [
-                "REST APIs",
-                "85ms search response",
-                "99.9% uptime"
+        {
+            id: 2,
+            title: "3D Room Portfolio",
+            year: "2026",
+            category: "Immersive 3D / WebGL",
+
+            slug: "3d-room",
+
+            summary:
+            "A fully interactive 3D room built in the browser — Blender-modelled assets, real-time rendering via React Three Fiber and cinematic camera movement.",
+
+            description:
+            "An immersive portfolio experience built with React Three Fiber and Blender, allowing visitors to navigate an interactive 3D environment showcasing projects and technical creativity.",
+
+            videoUrl:
+            "YOUR_3D_ROOM_VIDEO_URL",
+
+            tech: [
+            "React Three Fiber",
+            "Three.js",
+            "Blender",
+            "GSAP",
+            "TypeScript",
+            "React"
             ],
+
+            metrics: [
+            { label: "Engine", value: "WebGL + R3F" },
+            { label: "Assets", value: "Blender" },
+            { label: "Render", value: "60fps" }
+            ],
+
+            highlights: [
+            "Interactive 3D room",
+            "Smooth GSAP camera transitions",
+            "Optimized GLTF rendering"
+            ],
+
+            approach:
+            "The goal was to create a memorable portfolio experience beyond traditional websites. Blender was used to create optimized low-poly assets while React Three Fiber handled rendering and scene management.",
+
+            techDecisions: {
+            "React Three Fiber":
+                "Chosen for declarative Three.js scene management inside React.",
+            "Blender":
+                "Used for creating optimized custom 3D assets.",
+            "GSAP":
+                "Implemented for cinematic camera transitions and interaction."
+            },
+
             outcome: [
-                "Architected and deployed a full-stack MERN application with a decoupled frontend and backend.",
-                "Developed custom REST API endpoints to handle dynamic data fetching, reducing frontend data processing logic.",
-                "Mastered the integration of third-party authentication services with custom backend databases.",
-                "Optimized backend performance and successfully managed deployment configurations on Render."
-            ]
+            "Built a fully immersive browser-based 3D experience.",
+            "Improved optimization techniques for real-time rendering.",
+            "Created a portfolio differentiator for recruiters."
+            ],
+
+            live:
+            "https://portfolio-nq72.vercel.app/3d-room",
+
+            github: "#"
         },
         {
             id: 3,
-            title: "Cactro 3D Resume",
-            summary: "An immersive 3D interactive resume experience built using React and Three.js, designed to showcase personal skills and work history in an engaging visual format.",
-            tags: ["React", "Three.js", "React Three Fiber", "3D UI", "Animation"],
-            path: "/projects/cactro-3d-resume",
-            slug: "cactro-3d-resume",
-            image: CactroResumeImg, 
-            sourceLink: "https://github.com/Uzrakhan/Cactro-3d-resume",
-            liveLink: "https://cactro-3d-resume.vercel.app/", 
-            videoUrl: "https://raw.githubusercontent.com/Uzrakhan/Portfolio/main/src/assets/CactroResume.mp4",
-            description:
-                "Cactro 3D Resume reimagines the traditional resume as a 3D interactive Rubik's Cube. Users can explore my professional story in a dynamic, immersive way — from education and skills to project highlights and personal philosophy.",
-            approach:
-                "I wanted to break away from static resume formats and build something that reflects my technical identity. Using React Three Fiber with Three.js, I constructed a 3D environment representing different sections of a resume as interactive zones. Animations were orchestrated with GSAP and camera transitions to guide the user. The challenge was balancing visuals with performance, so I optimized models and used lazy-loading for heavier assets to ensure smooth interaction across devices.",
-            techStack: [
-                "React",
-                "React Three Fiber",
-                "Three.js",
-                "GSAP",
-                "Tailwind CSS"
-            ],
-            techDecisions: {
-                "React Three Fiber":
-                "Chose R3F to write Three.js declaratively inside React, making scene management and component structure far easier than vanilla Three.js.",
-                "GSAP":
-                "Used for animation timing and smooth camera transitions because of its high performance and fine-grained control compared to CSS or native Web Animations.",
-                "Lazy Loading":
-                "Implemented lazy loading for 3D assets to improve performance on lower-powered devices and keep interaction responsive.",
-                "Tailwind CSS":
-                "Used utility classes for quick responsive UI styling outside the 3D canvas components."
-            },
-            highlights: [
-                "Interactive 3D resume interface",
-                "Smooth camera and animation transitions",
-                "Optimized for performance across devices"
-            ],
-            outcome: [
-                "Created a memorable, interactive representation of my professional story.",
-                "Gained deeper architectural and animation expertise with React Three Fiber.",
-                "Improved performance optimization strategies for immersive web graphics."
-            ]
-        }
+            title: "GhostSpace",
+            year: "2026",
+            category: "Storage Analytics / Productivity",
 
-    ],
-        socialLinks: [
-        { name: "GitHub", url: "https://github.com/Uzrakhan", icon: FaGithub }, // Use your GitHub URL
-        { name: "LinkedIn", url: "https://www.linkedin.com/in/uzra-khan-40b472272/", icon: FaLinkedin }, // Use your LinkedIn URL
-        { name: "Twitter", url: "https://twitter.com/your-username", icon: FaTwitter }, // Use your Twitter/X URL
-    ],
+            slug: "ghostspace",
+
+            summary:
+            "An intelligent storage analytics platform that helps users understand, organize, and clean their digital clutter across Gmail, Google Drive, and future cloud integrations.",
+
+            description:
+            "GhostSpace was designed to solve digital storage overload by giving users deep visibility into how their Google storage is consumed. The platform analyzes Gmail attachments, Drive files, duplicates, large unused assets, and storage-heavy content patterns to help users reclaim space efficiently.",
+
+            videoUrl:
+            "YOUR_GHOSTSPACE_VIDEO_URL",
+
+            tech: [
+            "React",
+            "TypeScript",
+            "Node.js",
+            "Google APIs",
+            "OAuth 2.0",
+            "Tailwind CSS",
+            "Express",
+            "MongoDB"
+            ],
+
+            metrics: [
+            { label: "Platforms", value: "Gmail + Drive" },
+            { label: "Analysis", value: "Real-Time" },
+            { label: "Goal", value: "Storage Cleanup" }
+            ],
+
+            highlights: [
+            "Google Drive storage analysis",
+            "Gmail attachment insights",
+            "Large file & duplicate detection",
+            "OAuth-secured Google account integration",
+            "Storage visualization dashboard",
+            "Future-ready architecture for Google Photos integration"
+            ],
+
+            approach:
+            "The platform was architected around Google OAuth and Google APIs to securely fetch and analyze user storage data across multiple services. The frontend focused heavily on clarity and visualization, helping users quickly identify large files, redundant assets, and inactive content consuming storage space. Emphasis was placed on privacy-first handling and scalable modular integrations for future services like Google Photos.",
+
+            techDecisions: {
+            "Google APIs":
+                "Used for secure access to Gmail and Drive metadata and storage analytics.",
+
+            "OAuth 2.0":
+                "Implemented to ensure secure authentication and permission-scoped access.",
+
+            "React + TypeScript":
+                "Chosen for scalable frontend architecture and maintainable UI logic.",
+
+            "MongoDB":
+                "Used to manage user session analytics and cached storage metadata.",
+
+            "Tailwind CSS":
+                "Enabled fast development of a clean dashboard-oriented interface."
+            },
+
+            outcome: [
+                "Built a scalable foundation for cross-platform storage analytics.",
+                "Improved understanding of OAuth-based integrations and Google ecosystem APIs.",
+                "Created an extensible architecture ready for future integrations like Google Photos.",
+                "Designed a productivity-focused UX centered around digital decluttering."
+            ],
+
+            live:
+            "https://ghost-space.vercel.app/",
+
+            github:
+            "https://github.com/Uzrakhan/GhostSpace"
+        },
+        {
+            id: 4,
+            title: "Tomato Food App",
+            year: "2025",
+            category: "Full-Stack Clone",
+
+            slug: "tomato-food-app",
+
+            summary:
+            "Production-grade Zomato clone with REST APIs, Firebase authentication and scalable backend architecture.",
+
+            description:
+            "A complete food ordering ecosystem featuring secure authentication, restaurant metadata, dynamic menus and API-driven architecture.",
+
+            videoUrl:
+            "https://github.com/Uzrakhan/Portfolio/raw/refs/heads/main/src/assets/TomatoDemo.mp4",
+
+            image: TomatoImg,
+
+            tech: [
+            "React",
+            "Node.js",
+            "Express",
+            "MongoDB",
+            "Firebase",
+            "Tailwind CSS"
+            ],
+
+            metrics: [
+            { label: "Uptime", value: "99.9%" },
+            { label: "Search", value: "<85ms" },
+            { label: "Auth", value: "Firebase" }
+            ],
+
+            highlights: [
+            "REST API architecture",
+            "Secure Firebase authentication",
+            "Fast restaurant search"
+            ],
+
+            approach:
+            "Built a custom backend with Express and MongoDB to manage dynamic restaurant and order data while integrating Firebase authentication securely.",
+
+            techDecisions: {
+            "MongoDB":
+                "Perfect for flexible restaurant/menu schemas.",
+            "Firebase":
+                "Used for secure production-ready authentication.",
+            "Express":
+                "Provided scalable REST API architecture."
+            },
+
+            outcome: [
+            "Successfully deployed a full-stack MERN application.",
+            "Improved backend architecture and API development skills."
+            ],
+
+            live:
+            "https://tomato-food-app-two.vercel.app/",
+
+            github:
+            "https://github.com/Uzrakhan/Tomato-food-app"
+        }
+    ]
 };

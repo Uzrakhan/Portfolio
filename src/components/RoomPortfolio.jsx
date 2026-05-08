@@ -1,9 +1,10 @@
 import { Canvas, useThree } from "@react-three/fiber";
-import { OrbitControls, Html, Float, ContactShadows } from "@react-three/drei";
+import { OrbitControls, Html, ContactShadows } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import React, { useEffect, useRef } from "react";
 import { useState } from "react";
 import * as THREE from "three";
+import { motion } from "framer-motion";
 import gsap from 'gsap'
 import ProjectsOverlay from "./ProjectsOverlay";
 import BookShelf from "./BookShelf";
@@ -87,14 +88,80 @@ function Laptop({ onClick }) {
 }
 
 
+const TOUR_STEPS = [
+  { 
+    name: "Development Terminal", 
+    pos: [-20, 10, 20], 
+    look: [-17, 7, 2],
+    desc: "Main workspace for React and Three.js development."
+  },
+  { 
+    name: "Academic Credentials", 
+    pos: [-10, 13, -20], 
+    look: [-10, 12, -29.8],
+    desc: "Master's in Physics & BSc in Maths/Physics."
+  },
+  { 
+    name: "Neural Arcade", 
+    pos: [12, 8, -10], 
+    look: [12, 6, -23],
+    desc: "Interactive experiments and legacy gaming projects."
+  }
+];
 
 
-
-function RoomScene({ isStarted,onLaptopClick,onBookshelfClick ,resetCamera, setShowSkillsHover, onDegreeClick, onArcadeClick, onArchitectureClick,isAnyOverlayOpen, showArchitecture }) {
+function RoomScene({ 
+    isStarted,onLaptopClick,onBookshelfClick ,
+    resetCamera, setShowSkillsHover, onDegreeClick, 
+    onArcadeClick, onArchitectureClick,isAnyOverlayOpen, 
+    showArchitecture, isTouring, onTourFinish }) {
     const { scene, camera } = useThree();
     const initialPosition = { x: 0, y: 20, z: 40 };
-    const arcadeRef = useRef();
+    const laptopRef = useRef()
+    const degreeRef = useRef()
+    const arcadeRef = useRef()
+    const [currentStep, setCurrentStep] = useState(-1);
 
+    // trigger tour start
+    useEffect(() => {
+        if (isTouring) setCurrentStep(0);
+    }, [isTouring])
+
+    //tour sequence logic
+    useEffect(() => {
+        if (currentStep >= 0 && currentStep < TOUR_STEPS.length) {
+            const step = TOUR_STEPS[currentStep];
+
+            //move camera
+            gsap.to(camera.position, {
+                x: step.pos[0],
+                y: step.pos[1],
+                z: step.pos[2],
+                duration: 2.5,
+                ease: "power4.inOut",
+                onUpdate: () => {
+                    camera.lookAt(step.look[0], step.look[1], step.look[2])
+                },
+                onComplete: () => {
+                    //pause tolet suer read/see the location
+                    setTimeout(() => {
+                        setCurrentStep(prev => prev + 1)
+                    }, 2000)
+                }
+            });
+        } else if (currentStep === TOUR_STEPS.length) {
+            //tour finished
+            setCurrentStep(-1);
+            onTourFinish()
+
+            //return to home position
+            gsap.to(camera.position, {
+                x: 0, y: 15, z: 30,
+                duration: 2, 
+                onUpdate: () => camera.lookAt(0,0,0)
+            });
+        }
+    }, [currentStep, camera, onTourFinish])
 
     //atmosphere & bg
     useEffect(() => {
@@ -113,6 +180,7 @@ function RoomScene({ isStarted,onLaptopClick,onBookshelfClick ,resetCamera, setS
             }
         });
     }, [resetCamera]);
+
 
 
     const handleLaptopClick = () => {
@@ -215,6 +283,39 @@ function RoomScene({ isStarted,onLaptopClick,onBookshelfClick ,resetCamera, setS
 
     return (
         <>
+            {/**TOUR HUD DISPLAY */}
+            {isTouring && currentStep >= 0 && (
+                <Html center position={[0,20,-10]}>
+                    <div className="scanline-effect" />
+                    <div className="flex flex-col items-center pointer-events-none w-[400px]">
+                        <div className="text-[#00ffff] font-mono text-[10px] tracking-[0.6em] uppercase mb-4 opacity-70">
+                            [ Analysis_In_Progress ]
+                        </div>
+
+                        <div className="bg-[#0a192f]/80 backdrop-blur-md border border-[#00ffff]/50 p-6 rounded-sm shadow-[0_0_30px_rgba(0,255,255,0.15)] text-center">
+                            <h2 className="text-[#00ffff] text-3xl font-black uppercase tracking-tighter mb-2">
+                                {TOUR_STEPS[currentStep]?.name}
+                            </h2>
+                            <p className="text-white/60 text-xs font-mono leading-relaxed uppercase">
+                                {TOUR_STEPS[currentStep]?.desc}
+                            </p>
+                        </div>
+
+                        {/**progress bar */}
+                        <div className="w-full h-1 bg-white/10 mt-6 rounded-full overflow-hidden">
+                            <motion.div 
+                                key={currentStep} // Restarts animation on each step
+                                initial={{ width: 0 }}
+                                animate={{ width: "100%" }}
+                                transition={{ duration: 4.5 }} 
+                                className="h-full bg-[#00ffff]"
+                            />
+                        </div>
+                    </div>
+                </Html>
+            )}
+
+
             {/* --- LIGHTING SETUP --- */}
             <ambientLight intensity={0.4} />
 
@@ -277,7 +378,7 @@ function RoomScene({ isStarted,onLaptopClick,onBookshelfClick ,resetCamera, setS
             </group>
 
             {/* Desk Group */}
-            <group position={[-17, 3, 2]} rotation={[0,Math.PI / 2,0]}>
+            <group ref={laptopRef} position={[-17, 3, 2]} rotation={[0,Math.PI / 2,0]}>
 
                 {/* Desk Top */}
                 <mesh position={[0, 7, 0]} castShadow receiveShadow>
@@ -369,7 +470,7 @@ function RoomScene({ isStarted,onLaptopClick,onBookshelfClick ,resetCamera, setS
 
 
             {/* Other Models */}
-            <DegreeModel position={[-10, 12, -29.8]} onClick={onDegreeClick}/>
+            <DegreeModel ref={degreeRef} position={[-10, 12, -29.8]} onClick={onDegreeClick}/>
             <BookShelf position={[18, 0, 5]} rotation={[0, -Math.PI / 2, 0]} onClick={onBookshelfClick} />
             <BookShelf onClick={handleBookShelfClick} setShowSkillsHover={setShowSkillsHover}/>
             
@@ -409,6 +510,7 @@ export default function RoomPortfolio() {
     const [showSkills, setShowSkills] = useState(false);
     const [showArchitecture, setShowArchitecture] = useState(false);
     const [isStarted, setIsStarted] = useState(false)
+    const [isTouring, setIsTouring] = useState(false);
     const isAnyOverlayOpen =
         showArcade ||
         showSkills ||
@@ -434,6 +536,8 @@ export default function RoomPortfolio() {
                 <Canvas shadows frameloop={isStarted ? "always" : "demand"} camera={{ position: [-15, 40, 45], fov: 65 }} dpr={[1, 1.5]} gl={{ antialias: false }}>
                     <React.Suspense fallback={null}>
                                 <RoomScene 
+                                    isTouring={isTouring}
+                                    onTourFinish={() => setIsTouring(false)}
                                     isStarted={isStarted}
                                     isAnyOverlayOpen={isAnyOverlayOpen}
                                     showArchitecture={showArchitecture}
@@ -444,9 +548,31 @@ export default function RoomPortfolio() {
                                     onArcadeClick={() => setShowArcade(true)}
                                     onArchitectureClick={() => setShowArchitecture(true)}
                                 />
-                                <OrbitControls enableZoom={false}/>
+                                <OrbitControls enableZoom={false} enabled={!isTouring}/>
                     </React.Suspense>
                 </Canvas>
+
+                {/**tour trigger buttoon */}
+                {isStarted && !isTouring && !isAnyOverlayOpen && (
+                    <div className="fixed bottom-12 left-1/2 -translate-x-1/2 z-50">
+                        <button 
+                            onClick={() => setIsTouring(true)}
+                            className="px-8 py-3 bg-transparent border border-[#00ffff] text-[#00ffff] font-mono text-sm tracking-[0.2em] uppercase rounded-sm hover:bg-[#00ffff]/10 hover:shadow-[0_0_20px_rgba(0,255,255,0.4)] transition-all duration-300 group"
+                        >
+                            <span className="group-hover:animate-pulse">Execute_Tour.sh</span>
+                        </button>
+                    </div>
+                )}
+
+                {/* Skip Button (Visible only during tour) */}
+                {isTouring && (
+                    <button
+                        onClick={() => setIsTouring(false)}
+                        className="fixed top-10 right-10 z-[1001] text-[#ff00ff] text-[10px] font-bold uppercase tracking-widest border border-[#ff00ff] px-4 py-2 hover:bg-[#ff00ff] hover:text-white transition-all"
+                    >
+                        Skip_Tour [ESC]
+                    </button>
+                )}
             </div>
             {showOverlay && (
                   <><div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40" /><ProjectsOverlay onClose={() => {
