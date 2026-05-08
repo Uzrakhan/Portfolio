@@ -4,3 +4,16 @@
   box-sizing: border-box;
 }
 
+
+
+@media(max-width:900px){
+
+  .desktop-nav{
+    display:none !important;
+  }
+
+  .mobile-menu-btn{
+    display:block !important;
+  }
+
+}

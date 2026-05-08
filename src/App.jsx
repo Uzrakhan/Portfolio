@@ -14,6 +14,9 @@ import ProjectDetail from './pages/ProjectDetail';
 import Footer from './components/Footer';
 import RoomPortfolio from './components/RoomPortfolio';
 import ProjectDetails from './components/ProjectDetails';
+import Landing2D from "./pages/Landing2D";
+import ProjectDetail2D from './pages/ProjectDetail2D';
+import AboutPage from './pages/AboutPage';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -50,6 +53,31 @@ function App() {
                     path='/*' // Use '/*' to catch the root and any hash that follows (e.g., /#about)
                     element={
                         <DefaultScrollWrapper pathname={location.pathname}>
+                            <Landing2D />
+                        </DefaultScrollWrapper>
+                    }
+                />
+
+                <Route 
+                    path="/about"
+                    element={
+                        <AboutPage />
+                    }
+                />
+
+                <Route 
+                    path="/project/:id"
+                    element={
+                    <DefaultScrollWrapper pathname={location.pathname}>
+                        <ProjectDetail2D />
+                    </DefaultScrollWrapper>
+                    }
+                />
+
+                <Route 
+                    path='/3d-room'
+                    element={
+                        <DefaultScrollWrapper pathname={location.pathname}>
                             <main>
                                 <RoomPortfolio />
                             </main>
@@ -57,17 +85,9 @@ function App() {
                     }
                 />
 
+                
                 <Route 
-                    path='/projects/:slug'
-                    element={
-                    <DefaultScrollWrapper>
-                        <ProjectDetails />
-                    </DefaultScrollWrapper>
-                    }
-                />
-                {/* 2. PROJECT DETAIL PAGE ROUTE */}
-                <Route 
-                    path='/projects/:slug'
+                    path='/3d/projects/:slug'
                     element={
                         <DefaultScrollWrapper pathname={location.pathname}>
                             <ProjectDetail />
