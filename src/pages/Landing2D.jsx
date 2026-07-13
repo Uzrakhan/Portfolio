@@ -684,6 +684,75 @@ function Experience() {
       <p style={{ fontFamily:"'Fira Code',monospace", fontSize:"0.68rem", color:"#C8FF00", letterSpacing:"0.22em", marginBottom:"0.5rem" }}>04 / EXPERIENCE</p>
       <h2 style={{ fontFamily:"'Bebas Neue',cursive", fontSize:"clamp(3rem,6vw,5.5rem)", color:"#F0EBE1", margin:0, letterSpacing:"0.04em", lineHeight:1, marginBottom:"5rem" }}>HISTORY</h2>
  
+      {/**Internship */}
+      <div 
+        style={{ 
+          display:"grid", 
+          gridTemplateColumns: 
+            window.innerWidth <= 900
+              ? "1fr"
+              : "180px 1fr",
+          gap: window.innerWidth <= 900
+            ? "2rem"
+            : "4rem",
+          paddingBottom:"4.5rem", 
+          borderBottom:"1px solid rgba(240,235,225,0.07)", marginBottom:"4.5rem" 
+          }}
+        >
+        <div>
+          <p style={{ fontFamily:"'Fira Code',monospace", fontSize:"0.65rem", color:"rgba(240,235,225,0.28)", letterSpacing:"0.1em", margin:0, lineHeight:1.7 }}>JUNE 2026<br/>JULY 2026</p>
+          <div style={{ width:28, height:2, background:"#C8FF00", marginTop:"1rem" }} />
+        </div>
+        <div>
+          <h3 
+            style={{ 
+              fontFamily:"'Bebas Neue',cursive", 
+              fontSize:
+                window.innerWidth <= 900
+                  ? "1.55rem"
+                  : "2.1rem", 
+              color:"#F0EBE1", 
+              margin:0, 
+              letterSpacing:"0.06em" 
+              }}>
+              FRONTEND DEVELOPER INTERN
+            </h3>
+          <p style={{ fontFamily:"'Cabinet Grotesk',sans-serif", color:"#C8FF00", fontSize:"0.85rem", margin:"0.3rem 0 1.8rem", letterSpacing:"0.05em" }}>
+            PitchMatter · Remote
+          </p>
+          <ul style={{ margin:0, padding:0, listStyle:"none", display:"flex", flexDirection:"column", gap:"0.85rem" }}>
+            {[
+                "Conducted comprehensive QA testing across the Zynk.ing platform, identifying functional, UI/UX, and edge-case issues with prioritized bug reports and reproduction steps.",
+                "Designed high-fidelity Figma interfaces for Expert Dashboard modules including Session Types, Availability, Earnings & Rewards, and Tax & Invoicing.",
+                "Created detailed developer handoff documentation covering design systems, component specifications, responsive layouts, accessibility guidelines, and implementation notes.",
+                "Collaborated with UI/UX designers to refine product workflows and propose usability improvements for key platform features.",
+                "Contributed to product planning through UX analysis, feature recommendations, and structured documentation for frontend implementation.",
+            ].map(pt => (
+              <li 
+                key={pt} 
+                style={{ 
+                  fontFamily:"'Cabinet Grotesk',sans-serif", 
+                  color:"rgba(240,235,225,0.52)", 
+                  fontSize:
+                    window.innerWidth <= 900
+                      ? "0.82rem"
+                      : "0.92rem",
+                  lineHeight:
+                    window.innerWidth <= 900
+                      ? 1.9
+                      : 1.72,
+                  paddingLeft:"1.2rem", 
+                  position:"relative" 
+                }}
+              >
+                <span style={{ position:"absolute", left:0, color:"#C8FF00", fontSize:"0.68rem" }}>▹</span>{pt}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+
       {/* Freelance */}
       <div 
         style={{ 
@@ -751,6 +820,8 @@ function Experience() {
           </ul>
         </div>
       </div>
+
+      
  
       {/* Education */}
       <div 
