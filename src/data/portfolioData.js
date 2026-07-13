@@ -217,7 +217,7 @@ export const PORTFOLIO_DATA = {
             "GhostSpace was designed to solve digital storage overload by giving users deep visibility into how their Google storage is consumed. The platform analyzes Gmail attachments, Drive files, duplicates, large unused assets, and storage-heavy content patterns to help users reclaim space efficiently.",
 
             videoUrl:
-            "YOUR_GHOSTSPACE_VIDEO_URL",
+            "https://media.githubusercontent.com/media/Uzrakhan/Portfolio/main/src/assets/GhostSpaceDemo.mp4",
 
             tech: [
             "React",
