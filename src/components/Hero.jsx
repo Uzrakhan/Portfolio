@@ -8,7 +8,7 @@ import emailjs from '@emailjs/browser';
 
 const PORTFOLIO_DATA = { 
     hero: { 
-        name: "UZRA KHAN", 
+        name: "UZRA KHANSSS", 
         specialty: "Frontend Engineer with FullStack Expertise", 
         summary: "Dedicated Frontend Engineer with a passion for building highly performant, responsive, and accessible user interfaces. Expert in the React ecosystem and leveraging Fullstack knowledge to drive efficient collaboration and scalable application architecture.",
         email: "uzrakhan539@gmail.com" 
