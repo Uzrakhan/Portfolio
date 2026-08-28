@@ -67,7 +67,7 @@ function Nav() {
           </a>
         ))}
         <a href="mailto:uzrakhan539@gmail.com"
-          style={{ fontFamily:"'Fira Code',monospace", fontSize:"0.68rem", color:"#080808", background:"#C8FF00", padding:"8px 20px", borderRadius:3, textDecoration:"none", letterSpacing:"0.06em", transition:"opacity 0.2s" }}
+          style={{ fontFamily:"'Fira Code',monospace", fontSize:"0.68rem", color:"#080808", background:"#F05A9D", padding:"8px 20px", borderRadius:3, textDecoration:"none", letterSpacing:"0.06em", transition:"opacity 0.2s" }}
           onMouseEnter={e => e.target.style.opacity="0.82"}
           onMouseLeave={e => e.target.style.opacity="1"}>
           HIRE ME
@@ -163,7 +163,7 @@ function Marquee({ rev = false }) {
     <div style={{ overflow:"hidden", borderTop:"1px solid rgba(240,235,225,0.07)", borderBottom:"1px solid rgba(240,235,225,0.07)", padding:"13px 0", background:"rgba(200,255,0,0.015)" }}>
       <div style={{ display:"flex", width:"max-content", animation:`mq${rev?"R":""} 30s linear infinite` }}>
         {items.map((t,i) => (
-          <span key={i} style={{ fontFamily:"'Bebas Neue',cursive", fontSize:"0.9rem", letterSpacing:"0.22em", color: i%2===0 ? "rgba(240,235,225,0.22)" : "#C8FF00", marginRight:"3rem", whiteSpace:"nowrap" }}>
+          <span key={i} style={{ fontFamily:"'Bebas Neue',cursive", fontSize:"0.9rem", letterSpacing:"0.22em", color: i%2===0 ? "rgba(240,235,225,0.22)" : "#F05A9D", marginRight:"3rem", whiteSpace:"nowrap" }}>
             {t} <span style={{ color:"rgba(240,235,225,0.08)" }}>✦</span>
           </span>
         ))}
@@ -224,7 +224,7 @@ export default function AboutPage() {
           <section style={{ minHeight:"55vh", display:"flex", flexDirection:"column", justifyContent:"flex-end", padding:"0 clamp(1.5rem,4vw,4rem)", paddingBottom:"5rem", position:"relative", overflow:"hidden" }}>
             {/* Grid background */}
             <div style={{ position:"absolute", inset:0, backgroundImage:"linear-gradient(rgba(240,235,225,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(240,235,225,0.022) 1px,transparent 1px)", backgroundSize:"90px 90px", pointerEvents:"none" }} />
-            <div style={{ position:"absolute", top:"15%", left:"-5%", width:450, height:450, borderRadius:"50%", background:"radial-gradient(circle,rgba(200,255,0,0.055) 0%,transparent 65%)", pointerEvents:"none" }} />
+            <div style={{ position:"absolute", top:"15%", left:"-5%", width:450, height:450, borderRadius:"50%", background:"radial-gradient(circle,rgba(240,90,157,0.10) 0%,transparent 65%)", pointerEvents:"none" }} />
             {/* Ghost word */}
             <div style={{ position:"absolute", bottom:"-2.5rem", right:"clamp(1rem,2vw,2rem)", fontFamily:"'Bebas Neue',cursive", fontSize:"clamp(7rem,20vw,20rem)", color:"rgba(240,235,225,0.018)", letterSpacing:"0.02em", lineHeight:1, pointerEvents:"none", userSelect:"none" }}>
               ABOUT
@@ -235,7 +235,7 @@ export default function AboutPage() {
                 01 / WHO I AM
               </p>
               <h1 style={{ fontFamily:"'Bebas Neue',cursive", fontSize:"clamp(4rem,12vw,12rem)", lineHeight:0.88, letterSpacing:"0.015em", margin:0, marginBottom:"2rem", opacity: headerVis?1:0, transform: headerVis?"translateY(0)":"translateY(28px)", transition:"all 0.7s 0.1s ease" }}>
-                THE<br/><span style={{ color:"#C8FF00" }}>PERSON</span><br/>BEHIND<br/>THE CODE
+                THE<br/><span style={{ color:"#F05A9D" }}>PERSON</span><br/>BEHIND<br/>THE CODE
               </h1>
 
               <div style={{ display:"flex", alignItems:"flex-start", gap:"2rem", maxWidth:640, opacity: headerVis?1:0, transform: headerVis?"translateY(0)":"translateY(20px)", transition:"all 0.7s 0.22s ease" }}>
@@ -256,11 +256,11 @@ export default function AboutPage() {
               <FadeSection>
                 <div className="grid-2col" style={{ display:"grid", gridTemplateColumns:"minmax(200px,280px) 1fr", gap:"6rem", alignItems:"start" }}>
                   <div style={{ position:"sticky", top:100 }}>
-                    <p style={{ fontFamily:"'Fira Code',monospace", fontSize:"0.65rem", color:"#C8FF00", letterSpacing:"0.24em", marginBottom:"0.5rem" }}>— About</p>
+                    <p style={{ fontFamily:"'Fira Code',monospace", fontSize:"0.65rem", color:"#F05A9D", letterSpacing:"0.24em", marginBottom:"0.5rem" }}>— About</p>
                     <h2 style={{ fontFamily:"'Bebas Neue',cursive", fontSize:"clamp(2.5rem,4vw,4rem)", color:"#F0EBE1", margin:0, letterSpacing:"0.05em", lineHeight:1.05 }}>
                       MY<br/>STORY
                     </h2>
-                    <div style={{ width:36, height:3, background:"#C8FF00", margin:"1.4rem 0" }} />
+                    <div style={{ width:36, height:3, background:"#F05A9D", margin:"1.4rem 0" }} />
                     {/* Status pill */}
                     <div style={{ display:"inline-flex", alignItems:"center", gap:"0.5rem", border:"1px solid rgba(200,255,0,0.25)", borderRadius:3, padding:"6px 14px" }}>
                       <div style={{ width:6, height:6, borderRadius:"50%", background:"#C8FF00", animation:"pulse 2s ease infinite" }} />
@@ -305,7 +305,7 @@ export default function AboutPage() {
             ════════════════════════════════════════════════ */}
             <section id="philosophy" style={{ paddingTop:"7rem", paddingBottom:"7rem" }}>
               <FadeSection>
-                <p style={{ fontFamily:"'Fira Code',monospace", fontSize:"0.65rem", color:"#C8FF00", letterSpacing:"0.24em", marginBottom:"0.5rem" }}>02 / PHILOSOPHY</p>
+                <p style={{ fontFamily:"'Fira Code',monospace", fontSize:"0.65rem", color:"#F05A9D", letterSpacing:"0.24em", marginBottom:"0.5rem" }}>02 / PHILOSOPHY</p>
                 <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-end", marginBottom:"4rem", flexWrap:"wrap", gap:"1.5rem" }}>
                   <h2 style={{ fontFamily:"'Bebas Neue',cursive", fontSize:"clamp(3rem,6vw,5.5rem)", color:"#F0EBE1", margin:0, letterSpacing:"0.04em", lineHeight:1 }}>
                     {philosophy.title.replace(" ✨","")}
@@ -332,7 +332,7 @@ export default function AboutPage() {
             ════════════════════════════════════════════════ */}
             <section id="learning-log" style={{ paddingTop:"7rem", paddingBottom:"7rem" }}>
               <FadeSection>
-                <p style={{ fontFamily:"'Fira Code',monospace", fontSize:"0.65rem", color:"#C8FF00", letterSpacing:"0.24em", marginBottom:"0.5rem" }}>03 / GROWTH</p>
+                <p style={{ fontFamily:"'Fira Code',monospace", fontSize:"0.65rem", color:"#F05A9D", letterSpacing:"0.24em", marginBottom:"0.5rem" }}>03 / GROWTH</p>
                 <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-end", marginBottom:"4rem", flexWrap:"wrap", gap:"1.5rem" }}>
                   <h2 style={{ fontFamily:"'Bebas Neue',cursive", fontSize:"clamp(3rem,6vw,5.5rem)", color:"#F0EBE1", margin:0, letterSpacing:"0.04em", lineHeight:1 }}>
                     {learningLog.title.replace(" 🚀","")}
@@ -361,11 +361,11 @@ export default function AboutPage() {
                 <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 50% 50%, rgba(200,255,0,0.04) 0%, transparent 65%)", pointerEvents:"none" }} />
                 <p style={{ fontFamily:"'Fira Code',monospace", fontSize:"0.65rem", color:"rgba(240,235,225,0.25)", letterSpacing:"0.22em", marginBottom:"1rem" }}>READY TO COLLABORATE?</p>
                 <h2 style={{ fontFamily:"'Bebas Neue',cursive", fontSize:"clamp(3rem,6vw,6rem)", color:"#F0EBE1", margin:0, marginBottom:"2.5rem", letterSpacing:"0.04em" }}>
-                  LET'S BUILD<br/><span style={{ color:"#C8FF00" }}>SOMETHING GREAT.</span>
+                  LET'S BUILD<br/><span style={{ color:"#F05A9D" }}>SOMETHING GREAT.</span>
                 </h2>
                 <div style={{ display:"flex", gap:"1rem", justifyContent:"center", flexWrap:"wrap" }}>
                   <a href="/#work"
-                    style={{ fontFamily:"'Fira Code',monospace", fontSize:"0.72rem", color:"#080808", background:"#C8FF00", padding:"14px 32px", textDecoration:"none", letterSpacing:"0.1em", transition:"transform 0.2s,box-shadow 0.2s" }}
+                    style={{ fontFamily:"'Fira Code',monospace", fontSize:"0.72rem", color:"#080808", background:"#F05A9D", padding:"14px 32px", textDecoration:"none", letterSpacing:"0.1em", transition:"transform 0.2s,box-shadow 0.2s" }}
                     onMouseEnter={e => { e.currentTarget.style.transform="translateY(-3px)"; e.currentTarget.style.boxShadow="0 12px 30px rgba(200,255,0,0.35)"; }}
                     onMouseLeave={e => { e.currentTarget.style.transform="translateY(0)"; e.currentTarget.style.boxShadow="none"; }}>
                     SEE MY WORK ↓

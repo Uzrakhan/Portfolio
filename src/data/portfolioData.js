@@ -1,8 +1,5 @@
 // src/data/portfolioData.js
 import IdeaboardImg from '../assets/IdeaBoardThumbnail.png';
-import TomatoImg from '../assets/TomatoThumbnail.png';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
-import CactroResumeImg from '../assets/CactroResume.png';
 
 export const PORTFOLIO_DATA = {
     // ----------------------------------------------------
@@ -10,8 +7,10 @@ export const PORTFOLIO_DATA = {
     // ----------------------------------------------------
     hero: {
         name: "Uzra Khan",
-        specialty: "Frontend Engineer with FullStack Expertise",
-        summary: "Dedicated Frontend Engineer with a passion for building highly performant, responsive, and accessible user interfaces. Expert in the React ecosystem and leveraging Fullstack knowledge to drive efficient collaboration and scalable application architecture.",
+        specialty:
+        "Full-Stack Developer building thoughtful digital experiences and AI-powered products.",
+        summary:
+        "I like building at the intersection of thoughtful interfaces, solid engineering, and emerging AI.",
         email: "uzrakhan539@gmail.com"
     },
     // ----------------------------------------------------
@@ -30,13 +29,25 @@ export const PORTFOLIO_DATA = {
     about: {
         // Use HTML structure here as this will be rendered directly
         description: `
-          Hi, I’m Uzra Khan, a passionate and dedicated self-taught Fullstack Developer. I recently focused my learning on the modern web development stack, including <strong>React for the frontend</strong> and <strong>Node.js/Express for the backend</strong>.
-          <br/><br/>
-          Although I don't have formal, paid work experience, I have channeled all my effort into building <strong>real-world, hands-on projects</strong> that demonstrate my ability to design, develop, and deploy fullstack applications.
-        `,
+        I'm a Full-Stack Developer who enjoys turning ideas into
+        <strong>useful, polished digital products</strong>.
+        My work spans frontend development, backend systems, and
+        AI-powered applications, with a focus on building experiences
+        that are both technically solid and intuitive to use.
+        
+        I work primarily with <strong>React, Next.js, TypeScript,
+        Node.js, Python, and FastAPI</strong>, and have built products
+        involving real-time systems, APIs, authentication, and
+        scalable application architecture.
+        
+        More recently, I've been exploring <strong>Generative AI and
+        LLM-powered applications</strong> — integrating AI into products
+        through structured outputs, intelligent workflows, embeddings,
+        and multi-model orchestration.
+        `
     },
     philosophy: {
-                title: "My Development Philosophy ✨",
+        title: "My Development Philosophy ✨",
         pillars: [
             {
                 icon: "📄",
@@ -78,132 +89,79 @@ export const PORTFOLIO_DATA = {
     projects: [
         {
             id: 1,
-            title: "IdeaBoard",
+            title: "ApplyAI",
             year: "2026",
-            category: "Real-Time Collaboration",
+            category: "AI-Powered Job Assistant",
 
-            slug: "ideaboard",
+            slug: "applyai",
 
             summary:
-            "A blazing collaborative whiteboard where teams think together — sub-15ms sync, concurrent multi-user canvas, and a 99 Lighthouse score proving performance and beauty aren't trade-offs.",
+            "An AI-powered job application assistant that analyzes candidate skills against job requirements, generates personalized recommendations, and helps optimize resumes and cover letters.",
 
             description:
-            "This project addresses the challenge of remote collaboration by providing a real-time, shared digital space for users to brainstorm and draw simultaneously.",
+            "ApplyAI is a full-stack AI-powered job application assistant designed to help candidates tailor their applications to specific job opportunities. The platform combines a Next.js and React frontend with a Python FastAPI backend, using Pydantic schemas to validate structured requests and responses between the application layers. At its core, ApplyAI uses a Python-based weighted skill-matching engine with skill normalization to compare a candidate's skills against job requirements, calculate a match score, and provide actionable recommendations on areas that could be improved. It also uses AI to optimize resumes around relevant job requirements and generate personalized, evidence-based cover letters, helping candidates create more targeted and relevant applications rather than relying on generic templates.",
 
             videoUrl:
-            "https://media.githubusercontent.com/media/Uzrakhan/Portfolio/main/src/assets/IdeaBoardDemo.mp4",
+            "https://media.githubusercontent.com/media/Uzrakhan/Portfolio/main/src/assets/ApplyAIDemo.mp4",
+
 
             image: IdeaboardImg,
 
-            tech: [
-            "TypeScript",
-            "React",
-            "Socket.io",
-            "Node.js",
-            "Express",
-            "MongoDB",
-            "Tailwind CSS"
-            ],
-
-            metrics: [
-            { label: "Latency", value: "<15ms" },
-            { label: "Concurrent", value: "5+ users" },
-            { label: "Perf Score", value: "99 ⚡" }
-            ],
-
-            highlights: [
-            "Sub-15ms latency",
-            "Concurrent collaborative drawing",
-            "99 Lighthouse performance score"
+           tech: [
+                "Next.js",
+                "React",
+                "TypeScript",
+                "Python",
+                "FastAPI",
+                "Gemini API",
+                "Pydantic"
             ],
 
             approach:
-            "Initially, I explored different real-time communication protocols and settled on WebSockets for their low-latency, bidirectional capabilities essential for instant drawing updates. The backend was designed using Node.js and Express to efficiently handle concurrent socket connections and persistent drawing states.",
+            "The application was designed with a Next.js frontend and Python FastAPI backend, separating the user experience from the AI and matching logic. Pydantic schemas provide structured request and response validation, while a Python-based weighted matching engine normalizes skills and compares candidate profiles against job requirements.",
 
-            techDecisions: {
-            "Socket.io":
-                "Implemented for real-time bidirectional communication and room management.",
-            "TypeScript":
-                "Used for scalable type-safe architecture and predictable frontend logic.",
-            "MongoDB":
-                "Chosen for flexibility in storing dynamic drawing session data."
-            },
 
-            outcome: [
-            "Built a fully functional real-time collaborative MVP.",
-            "Improved expertise in WebSocket architecture.",
-            "Learned scalable backend patterns for concurrency."
+            highlights: [
+                "Weighted skill matching",
+                "AI-powered resume optimization",
+                "Personalized cover-letter generation"
             ],
 
+
+              techDecisions: {
+                "Next.js + React":
+                "Used to build a responsive, component-based frontend for the job application workflow.",
+
+                "FastAPI":
+                "Used to create a lightweight Python backend for AI features and application logic.",
+
+                "Pydantic":
+                "Used to validate structured requests and responses between the frontend and backend.",
+
+                "Gemini API":
+                "Used to power resume optimization and personalized cover-letter generation.",
+
+                "Python":
+                "Used to implement the weighted skill-matching and skill-normalization engine."
+            },
+
+
+            outcome: [
+                "Built a full-stack AI-powered job application assistant.",
+                "Implemented structured candidate-job skill matching.",
+                "Created AI-powered resume and cover-letter workflows.",
+                "Strengthened experience building AI features with Python and FastAPI."
+            ],
+
+
             live:
-            "https://idea-board-virid.vercel.app/",
+            "https://apply-ai-ebon.vercel.app/",
 
             github:
-            "https://github.com/Uzrakhan/IdeaBoard"
+            "https://github.com/Uzrakhan/ApplyAI"
         },
         {
             id: 2,
-            title: "3D Room Portfolio",
-            year: "2026",
-            category: "Immersive 3D / WebGL",
-
-            slug: "3d-room",
-
-            summary:
-            "A fully interactive 3D room built in the browser — Blender-modelled assets, real-time rendering via React Three Fiber and cinematic camera movement.",
-
-            description:
-            "An immersive portfolio experience built with React Three Fiber and Blender, allowing visitors to navigate an interactive 3D environment showcasing projects and technical creativity.",
-
-            videoUrl:
-            "YOUR_3D_ROOM_VIDEO_URL",
-
-            tech: [
-            "React Three Fiber",
-            "Three.js",
-            "Blender",
-            "GSAP",
-            "TypeScript",
-            "React"
-            ],
-
-            metrics: [
-            { label: "Engine", value: "WebGL + R3F" },
-            { label: "Assets", value: "Blender" },
-            { label: "Render", value: "60fps" }
-            ],
-
-            highlights: [
-            "Interactive 3D room",
-            "Smooth GSAP camera transitions",
-            "Optimized GLTF rendering"
-            ],
-
-            approach:
-            "The goal was to create a memorable portfolio experience beyond traditional websites. Blender was used to create optimized low-poly assets while React Three Fiber handled rendering and scene management.",
-
-            techDecisions: {
-            "React Three Fiber":
-                "Chosen for declarative Three.js scene management inside React.",
-            "Blender":
-                "Used for creating optimized custom 3D assets.",
-            "GSAP":
-                "Implemented for cinematic camera transitions and interaction."
-            },
-
-            outcome: [
-            "Built a fully immersive browser-based 3D experience.",
-            "Improved optimization techniques for real-time rendering.",
-            "Created a portfolio differentiator for recruiters."
-            ],
-
-            live:
-            "https://portfolio-nq72.vercel.app/3d-room",
-
-            github: "#"
-        },
-        {
-            id: 3,
             title: "GhostSpace",
             year: "2026",
             category: "Storage Analytics / Productivity",
@@ -279,67 +237,132 @@ export const PORTFOLIO_DATA = {
             "https://github.com/Uzrakhan/GhostSpace"
         },
         {
-            id: 4,
-            title: "Tomato Food App",
-            year: "2025",
-            category: "Full-Stack Clone",
+            id: 3,
+            title: "IdeaBoard",
+            year: "2026",
+            category: "Real-Time Collaboration",
 
-            slug: "tomato-food-app",
+            slug: "ideaboard",
 
             summary:
-            "Production-grade Zomato clone with REST APIs, Firebase authentication and scalable backend architecture.",
+            "A blazing collaborative whiteboard where teams think together — sub-15ms sync, concurrent multi-user canvas, and a 99 Lighthouse score proving performance and beauty aren't trade-offs.",
 
             description:
-            "A complete food ordering ecosystem featuring secure authentication, restaurant metadata, dynamic menus and API-driven architecture.",
+            "This project addresses the challenge of remote collaboration by providing a real-time, shared digital space for users to brainstorm and draw simultaneously.",
 
             videoUrl:
-            "https://github.com/Uzrakhan/Portfolio/raw/refs/heads/main/src/assets/TomatoDemo.mp4",
+            "https://media.githubusercontent.com/media/Uzrakhan/Portfolio/main/src/assets/IdeaBoardDemo.mp4",
 
-            image: TomatoImg,
+            image: IdeaboardImg,
 
             tech: [
+            "TypeScript",
             "React",
+            "Socket.io",
             "Node.js",
             "Express",
             "MongoDB",
-            "Firebase",
             "Tailwind CSS"
             ],
 
             metrics: [
-            { label: "Uptime", value: "99.9%" },
-            { label: "Search", value: "<85ms" },
-            { label: "Auth", value: "Firebase" }
+            { label: "Latency", value: "<15ms" },
+            { label: "Concurrent", value: "5+ users" },
+            { label: "Perf Score", value: "99 ⚡" }
             ],
 
             highlights: [
-            "REST API architecture",
-            "Secure Firebase authentication",
-            "Fast restaurant search"
+            "Sub-15ms latency",
+            "Concurrent collaborative drawing",
+            "99 Lighthouse performance score"
             ],
 
             approach:
-            "Built a custom backend with Express and MongoDB to manage dynamic restaurant and order data while integrating Firebase authentication securely.",
+            "Initially, I explored different real-time communication protocols and settled on WebSockets for their low-latency, bidirectional capabilities essential for instant drawing updates. The backend was designed using Node.js and Express to efficiently handle concurrent socket connections and persistent drawing states.",
 
             techDecisions: {
+            "Socket.io":
+                "Implemented for real-time bidirectional communication and room management.",
+            "TypeScript":
+                "Used for scalable type-safe architecture and predictable frontend logic.",
             "MongoDB":
-                "Perfect for flexible restaurant/menu schemas.",
-            "Firebase":
-                "Used for secure production-ready authentication.",
-            "Express":
-                "Provided scalable REST API architecture."
+                "Chosen for flexibility in storing dynamic drawing session data."
             },
 
             outcome: [
-            "Successfully deployed a full-stack MERN application.",
-            "Improved backend architecture and API development skills."
+            "Built a fully functional real-time collaborative MVP.",
+            "Improved expertise in WebSocket architecture.",
+            "Learned scalable backend patterns for concurrency."
             ],
 
             live:
-            "https://tomato-food-app-two.vercel.app/",
+            "https://idea-board-virid.vercel.app/",
 
             github:
-            "https://github.com/Uzrakhan/Tomato-food-app"
-        }
+            "https://github.com/Uzrakhan/IdeaBoard"
+        },
+        {
+            id: 4,
+            title: "3D Room Portfolio",
+            year: "2026",
+            category: "Immersive 3D / WebGL",
+
+            slug: "3d-room",
+
+            summary:
+            "A fully interactive 3D room built in the browser — Blender-modelled assets, real-time rendering via React Three Fiber and cinematic camera movement.",
+
+            description:
+            "An immersive portfolio experience built with React Three Fiber and Blender, allowing visitors to navigate an interactive 3D environment showcasing projects and technical creativity.",
+
+            videoUrl:
+            "https://media.githubusercontent.com/media/Uzrakhan/Portfolio/main/src/assets/3DRoomDemo.mp4",
+
+
+            tech: [
+            "React Three Fiber",
+            "Three.js",
+            "Blender",
+            "GSAP",
+            "TypeScript",
+            "React"
+            ],
+
+            metrics: [
+            { label: "Engine", value: "WebGL + R3F" },
+            { label: "Assets", value: "Blender" },
+            { label: "Render", value: "60fps" }
+            ],
+
+            highlights: [
+            "Interactive 3D room",
+            "Smooth GSAP camera transitions",
+            "Optimized GLTF rendering"
+            ],
+
+            approach:
+            "The goal was to create a memorable portfolio experience beyond traditional websites. Blender was used to create optimized low-poly assets while React Three Fiber handled rendering and scene management.",
+
+            techDecisions: {
+            "React Three Fiber":
+                "Chosen for declarative Three.js scene management inside React.",
+            "Blender":
+                "Used for creating optimized custom 3D assets.",
+            "GSAP":
+                "Implemented for cinematic camera transitions and interaction."
+            },
+
+            outcome: [
+            "Built a fully immersive browser-based 3D experience.",
+            "Improved optimization techniques for real-time rendering.",
+            "Created a portfolio differentiator for recruiters."
+            ],
+
+            live:
+            "https://portfolio-nq72.vercel.app/3d-room",
+
+            github: "#"
+        },
+       
     ]
 };

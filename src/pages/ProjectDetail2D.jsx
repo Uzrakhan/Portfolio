@@ -163,7 +163,7 @@ function FadeSection({ children, delay = 0, style = {} }) {
 // ── Section label ──────────────────────────────────────────────────────────
 function SectionLabel({ children }) {
   return (
-    <p style={{ fontFamily:"'Fira Code',monospace", fontSize:"0.65rem", color:"#C8FF00", letterSpacing:"0.25em", marginBottom:"1rem", textTransform:"uppercase" }}>
+    <p style={{ fontFamily:"'Fira Code',monospace", fontSize:"0.65rem", color:"#F05A9D", letterSpacing:"0.25em", marginBottom:"1rem", textTransform:"uppercase" }}>
       {children}
     </p>
   );
@@ -361,7 +361,7 @@ export default function ProjectDetail2D() {
               <div style={{ display:"flex", gap:"1rem", marginTop:"2.5rem", flexWrap:"wrap", opacity: headerVis ? 1 : 0, transition:"opacity 0.7s 0.35s ease" }}>
                 {project.live && (
                   <a href={project.live} target="_blank" rel="noreferrer"
-                    style={{ fontFamily:"'Fira Code',monospace", fontSize:"0.7rem", color:"#080808", background:"#C8FF00", padding:"12px 28px", textDecoration:"none", letterSpacing:"0.1em", transition:"transform 0.2s,box-shadow 0.2s" }}
+                    style={{ fontFamily:"'Fira Code',monospace", fontSize:"0.7rem", color:"#080808", background:"#F05A9D", padding:"12px 28px", textDecoration:"none", letterSpacing:"0.1em", transition:"transform 0.2s,box-shadow 0.2s" }}
                     onMouseEnter={e => { e.currentTarget.style.transform="translateY(-3px)"; e.currentTarget.style.boxShadow="0 12px 30px rgba(200,255,0,0.3)"; }}
                     onMouseLeave={e => { e.currentTarget.style.transform="translateY(0)"; e.currentTarget.style.boxShadow="none"; }}>
                     LIVE PROJECT ↗
@@ -623,7 +623,7 @@ export default function ProjectDetail2D() {
                   <p style={{ fontFamily:"'Bebas Neue',cursive", fontSize:"2.2rem", color:"#F0EBE1", letterSpacing:"0.06em", margin:0 }}>LET'S BUILD SOMETHING GREAT.</p>
                 </div>
                 <a href="mailto:uzrakhan539@gmail.com"
-                  style={{ fontFamily:"'Fira Code',monospace", fontSize:"0.72rem", color:"#080808", background:"#C8FF00", padding:"14px 32px", textDecoration:"none", letterSpacing:"0.1em", flexShrink:0, transition:"transform 0.2s,box-shadow 0.2s" }}
+                  style={{ fontFamily:"'Fira Code',monospace", fontSize:"0.72rem", color:"#080808", background:"#F05A9D", padding:"14px 32px", textDecoration:"none", letterSpacing:"0.1em", flexShrink:0, transition:"transform 0.2s,box-shadow 0.2s" }}
                   onMouseEnter={e => { e.currentTarget.style.transform="translateY(-3px)"; e.currentTarget.style.boxShadow="0 12px 30px rgba(200,255,0,0.35)"; }}
                   onMouseLeave={e => { e.currentTarget.style.transform="translateY(0)"; e.currentTarget.style.boxShadow="none"; }}>
                   CONTACT ME ↗
